@@ -1,0 +1,36 @@
+.main_content {
+  padding: 5px;
+  width: 50%;
+  margin: 10px auto;
+  border: solid 1px black;
+}
+.main_content h1 {
+  text-align: center;
+}
+.content {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+.corectItem {
+  border: solid green 3px;
+}
+.incorectItem {
+  border: solid 3px red;
+}
+.content input {
+  max-width: 60px;
+}
+.coeficientes {
+  width: 110px;
+  display: flex;
+  justify-content: space-around;
+}
+.result {
+  text-align: center;
+  border: solid 1px black;
+}
+.tempo {
+  text-align: center;
+}
