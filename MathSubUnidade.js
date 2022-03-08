@@ -29,11 +29,11 @@ export default {
         
     },
     template:`   <div class="main_content">
-    <h1>Somar 1/10</h1>
+    <h1>Subtrair 1/10</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
-            <p>+</p>
+            <p>-</p>
             <p>{{item.b}}</p>
             <p>=</p>
         </div>
@@ -51,14 +51,14 @@ export default {
     methods:{
      showExerciceForEach(){
          this.completeItem.map((item) => {       
-            item.a = Math.floor(Math.random() * 9)
+            item.a =  Math.floor(Math.random() * (20 - 10)) + 10;
             item.b = Math.floor(Math.random() * 9)
-            item.c =item.a + item.b            
+            item.c =item.a - item.b            
          })       
      },
      ReadingResult(index){   
             finishTest:0
-        if(this.completeItem[index].a + this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
+        if(this.completeItem[index].a - this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
             this.completeItem[index].e = "corectItem"
             this.completeItem[index].d = true
             this.postive++

@@ -10,18 +10,33 @@
 </head>
 <body>  
     <div id="app">
-     <matematica></matematica>     
+        <div>
+            <matematica-soma-unidade></matematica-soma-unidade>     
+            <matematica-soma-dezena1></matematica-soma-dezena1>     
+            <matematica-sub-unidade></matematica-sub-unidade>     
+            <matematica-mult21></matematica-mult21>     
+            <matematica-mult22></matematica-mult22>     
+        </div>
     </div>
     
+
     <script type="module" >      
 
-        import Matematica from "./MathSomaUnidade.js"
+        import MatematicaSomaUnidade from "./MathSomaUnidade.js"
+        import MatematicaSomaDezena1 from "./MathSomaDezena1.js"
+        import MatematicaSubUnidade from "./MathSubUnidade.js"
+        import MatematicaMult21 from "./MathMult2_1.js"
+        import MatematicaMult22 from "./MathMult2_2.js"
 
-      //  Vue.component("Matematica", Matematica)
+     
         const vm = new Vue({
             el: '#app',      
             components:{
-                Matematica
+               MatematicaSomaUnidade,
+                MatematicaSomaDezena1,
+                MatematicaSubUnidade,
+                MatematicaMult21,
+                MatematicaMult22
             }    
         });
     </script>

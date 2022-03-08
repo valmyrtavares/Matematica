@@ -1,5 +1,5 @@
 export default {
-    name:'MathSomaUnidade',
+    name:'MathSomaDezena1',
     // el:"#app",
     data(){
         return{
@@ -29,7 +29,7 @@ export default {
         
     },
     template:`   <div class="main_content">
-    <h1>Somar 1/10</h1>
+    <h1>Somar 2/10</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
@@ -51,8 +51,8 @@ export default {
     methods:{
      showExerciceForEach(){
          this.completeItem.map((item) => {       
-            item.a = Math.floor(Math.random() * 9)
-            item.b = Math.floor(Math.random() * 9)
+            item.a = Math.floor(Math.random() * 40)
+            item.b = Math.floor(Math.random() * 40)
             item.c =item.a + item.b            
          })       
      },
@@ -88,19 +88,19 @@ export default {
          let timeCurrent = 0;
        let firstNote =    this.postive * .5
      
-        if(this.seg < 15){
+        if(this.seg < 25){
             timeCurrent = 5
         }
-        else if(this.seg < 25){
+        else if(this.seg < 30){
             timeCurrent = 4
         }
-        else if(this.seg < 30){
+        else if(this.seg < 40){
             timeCurrent = 3
         }
-        else if(this.seg < 35){
+        else if(this.seg < 50){
             timeCurrent = 2
         }
-        else if(this.seg < 40){
+        else if(this.seg < 55){
             timeCurrent = 1
         }else{
             timeCurrent = 0
