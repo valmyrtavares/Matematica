@@ -8,37 +8,30 @@
     <script src="./vue.min.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body>  
     <div id="app">
-        <div class="main_content">
-            <h1>Somar 1/10</h1>
-            <div class="content" v-for="(item, index) in completeItem" :key="index">
-                <div class="coeficientes">
-                    <p>{{item.a}}</p>
-                    <p>+</p>
-                    <p>{{item.b}}</p>
-                    <p>=</p>
-                </div>
-                <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" @change="ReadingResult(index)"/>  
-                <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>            
-            </div>      
-            <div class="result" v-if="count > 10">
-                <p>Acertos {{postive}}</p>
-                <p>Erros {{negative}}</p>
-                <p>Sua nota é {{avaliationScreem}} {{showAvaliation()}}</p>
-            </div> 
-            <p class="tempo">Feito {{seg}} Segundos</p>
-
-        </div>
-     
+     <matematica></matematica>     
     </div>
     
-    <script src="./app.js" >
-        console.log("TESTE")
+    <script type="module" >      
+
+        import Matematica from "./MathSomaUnidade.js"
+
+      //  Vue.component("Matematica", Matematica)
+        const vm = new Vue({
+            el: '#app',      
+            components:{
+                Matematica
+            }    
+        });
     </script>
     </body>
     </html>
       
+       
+      
+    
+
        
      
      

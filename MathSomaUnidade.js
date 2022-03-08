@@ -1,29 +1,53 @@
-const vm = new Vue({
-    el:"#app",
-    data:{
-        vueTeste:"Esse é um teste vue",
-        completeItem:[
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false},
-            {a:0, b:0, c:0, d:"", e:"",f:false}      
-        ],
-      lux:0,  
-      itemQuestion:"",
-      postive:0,
-      negative:0,
-      disable:false,
-      count:1,
-      seg:0,
-      avaliationScreem:0
+export default {
+    name:'Matematica',
+    // el:"#app",
+    data(){
+        return{
+
+            vueTeste:"Esse é um teste vue",
+            completeItem:[
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false},
+                {a:0, b:0, c:0, d:"", e:"",f:false}      
+            ],
+          lux:0,  
+          itemQuestion:"",
+          postive:0,
+          negative:0,
+          disable:false,
+          count:1,
+          seg:0,
+          avaliationScreem:0
+        }
         
     },
+    template:`   <div class="main_content">
+    <h1>Somar 1/10</h1>
+    <div class="content" v-for="(item, index) in completeItem" :key="index">
+        <div class="coeficientes">
+            <p>{{item.a}}</p>
+            <p>+</p>
+            <p>{{item.b}}</p>
+            <p>=</p>
+        </div>
+        <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" @change="ReadingResult(index)"/>  
+        <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>            
+    </div>      
+    <div class="result" v-if="count > 10">
+        <p>Acertos {{postive}}</p>
+        <p>Erros {{negative}}</p>
+        <p>Sua nota é {{avaliationScreem}} {{showAvaliation()}}</p>
+    </div> 
+    <p class="tempo">Feito {{seg}} Segundos</p>
+
+</div>`,
     methods:{
      showExerciceForEach(){
          this.completeItem.map((item) => {       
@@ -116,6 +140,6 @@ const vm = new Vue({
         this.showExerciceForEach()
         console.log(this.completeItem)
     }
-})
+}
       
        
