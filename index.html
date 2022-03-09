@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./vue.min.js"></script>
     <title>Document</title>
-</head>
-<body>  
+  </head>
+  <body>
     <div id="app">
-        <div>
-            <matematica-soma-unidade></matematica-soma-unidade>     
-            <matematica-soma-dezena1></matematica-soma-dezena1>     
-            <matematica-sub-unidade></matematica-sub-unidade>     
-            <matematica-mult21></matematica-mult21>     
-            <matematica-mult22></matematica-mult22>     
-        </div>
+      <div>
+        <h1>Desafios</h1>
+
+        <ul>
+          <li @click="somaUnidade = !somaUnidade">Somas com unidades</li>
+          <li :disable="somaDezena">Somas com Dezenas</li>
+          {{somaDezena}}
+        </ul>
+
+        <matematica-soma-unidade
+          @liberaexercicio="teste"
+          v-if="somaUnidade"
+        ></matematica-soma-unidade>
+        <matematica-soma-dezena1 v-if="somaDezena"></matematica-soma-dezena1>
+        <!--  <matematica-sub-unidade></matematica-sub-unidade>
+        <matematica-mult21></matematica-mult21>
+        <matematica-mult22></matematica-mult22>
+        <matematica-mult2-complete></matematica-mult2-complete> -->
+      </div>
     </div>
-    
 
-    <script type="module" >      
+    <script type="module">
+      import MatematicaSomaUnidade from "./MathSomaUnidade.js";
+      import MatematicaSomaDezena1 from "./MathSomaDezena1.js";
+      import MatematicaSubUnidade from "./MathSubUnidade.js";
+      import MatematicaMult21 from "./MathMult2_1.js";
+      import MatematicaMult22 from "./MathMult2_2.js";
+      import MatematicaMult2Complete from "./MathMult2Complete.js";
 
-        import MatematicaSomaUnidade from "./MathSomaUnidade.js"
-        import MatematicaSomaDezena1 from "./MathSomaDezena1.js"
-        import MatematicaSubUnidade from "./MathSubUnidade.js"
-        import MatematicaMult21 from "./MathMult2_1.js"
-        import MatematicaMult22 from "./MathMult2_2.js"
-
-     
-        const vm = new Vue({
-            el: '#app',      
-            components:{
-               MatematicaSomaUnidade,
-                MatematicaSomaDezena1,
-                MatematicaSubUnidade,
-                MatematicaMult21,
-                MatematicaMult22
-            }    
-        });
+      const vm = new Vue({
+        el: "#app",
+        components: {
+          MatematicaSomaUnidade,
+          MatematicaSomaDezena1,
+          MatematicaSubUnidade,
+          MatematicaMult21,
+          MatematicaMult22,
+          MatematicaMult2Complete,
+        },
+        data: {
+          somaUnidade: false,
+          somaDezena: "false",
+          testeEmmit: "",
+        },
+        methods: {
+          teste(n) {
+            somaDezena = n;
+          },
+        },
+      });
     </script>
-    </body>
-    </html>
-      
-       
-      
-    
-
-       
-     
-     
-   
+  </body>
+</html>

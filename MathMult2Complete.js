@@ -24,19 +24,16 @@ export default {
           disable:false,
           count:1,
           seg:0,
-          avaliationScreem:0,
-          mathSomaDezena:false
-        }       
+          avaliationScreem:0
+        }
+        
     },
-    props:{somadezena:Boolean,
-        teste:String},
     template:`   <div class="main_content">
-    <h1>Somar 1/10</h1>
-    {{somadezena}}
+    <h1>Tabuada do 2 </h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
-            <p>+</p>
+            <p>X</p>
             <p>{{item.b}}</p>
             <p>=</p>
         </div>
@@ -54,14 +51,14 @@ export default {
     methods:{
      showExerciceForEach(){
          this.completeItem.map((item) => {       
-            item.a = Math.floor(Math.random() * 9)
-            item.b = Math.floor(Math.random() * 9)
-            item.c =item.a + item.b            
+            item.a = 2;
+            item.b = Math.floor(Math.random() * (11 - 0)) + 0;
+            item.c =item.a * item.b            
          })       
      },
      ReadingResult(index){   
             finishTest:0
-        if(this.completeItem[index].a + this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
+        if(this.completeItem[index].a * this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
             this.completeItem[index].e = "corectItem"
             this.completeItem[index].d = true
             this.postive++
@@ -125,18 +122,12 @@ export default {
         if(this.avaliationScreem<=7){
             return "Seu desempenho é regular"
         }
-        if(this.avaliationScreem<8){
+        if(this.avaliationScreem<9){
             return "Você já pode tentar um exercício mais difícil"
-            this.liberaProximosExercicios()
         }
         if(this.avaliationScreem<=10){
             return "Você já chegou ao ponto máximo desse nível"
-            this.liberaProximosExercicios()
         }
-    },
-    liberaProximosExercicios(){
-        this.mathSomaDezena=true      
-        this.$emit("liberaexercicio",this.mathSomaDezena)
     }
      
     },
@@ -147,7 +138,7 @@ export default {
 },
     mounted: function (){      
         this.showExerciceForEach()
-        console.log(this.somadezena)
+        console.log(this.completeItem)
     }
 }
       
