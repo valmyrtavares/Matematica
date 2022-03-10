@@ -12,22 +12,42 @@
     <div id="app">
       <div>
         <h1>Desafios</h1>
+        {{somaDezena}}
 
         <ul>
-          <li @click="somaUnidade = !somaUnidade">Somas com unidades</li>
-          <li :disable="somaDezena">Somas com Dezenas</li>
-          {{somaDezena}}
+          <li @click="changeScreen(0)">Somas com unidades</li>
+          <li
+            :disabled="avaiableScreens[0].item"
+            @click="changeScreen(1)"
+            style="cursor: pointer"
+          >
+            Somas com Dezenas
+          </li>
+          <li @click="changeScreen(2)" style="cursor: pointer">Subtração</li>
+          <li @click="changeScreen(3)" style="cursor: pointer">
+            Tabuada 2 primeira
+          </li>
+          <li @click="changeScreen(4)" style="cursor: pointer">
+            Tabuada 2 segundas
+          </li>
+          <li @click="changeScreen(5)" style="cursor: pointer">
+            Tabuada 2 Completa
+          </li>
         </ul>
 
         <matematica-soma-unidade
-          @liberaexercicio="teste"
-          v-if="somaUnidade"
+          @liberaexercicio="liberaTelas"
+          v-if="screens[0].item"
         ></matematica-soma-unidade>
-        <matematica-soma-dezena1 v-if="somaDezena"></matematica-soma-dezena1>
-        <!--  <matematica-sub-unidade></matematica-sub-unidade>
-        <matematica-mult21></matematica-mult21>
-        <matematica-mult22></matematica-mult22>
-        <matematica-mult2-complete></matematica-mult2-complete> -->
+        <matematica-soma-dezena1
+          v-if="screens[1].item"
+        ></matematica-soma-dezena1>
+        <matematica-sub-unidade v-if="screens[2].item"></matematica-sub-unidade>
+        <matematica-mult21 v-if="screens[3].item"></matematica-mult21>
+        <matematica-mult22 v-if="screens[4].item"></matematica-mult22>
+        <matematica-mult2-complete
+          v-if="screens[5].item"
+        ></matematica-mult2-complete>
       </div>
     </div>
 
@@ -51,12 +71,37 @@
         },
         data: {
           somaUnidade: false,
-          somaDezena: "false",
+          somaDezena: "",
           testeEmmit: "",
+          screens: [
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+          ],
+          avaiableScreens: [
+            { item: true },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+          ],
         },
         methods: {
-          teste(n) {
-            somaDezena = n;
+          liberaTelas(n) {
+            this.avaiableScreens[n].item = true;
+            console.log(this.avaiableScreens);
+          },
+          changeScreen(a) {
+            let i = 0;
+            this.screens;
+            for (i = 0; i < this.screens.length; i++) {
+              this.screens[i].item = false;
+            }
+            this.screens[a].item = true;
+            console.log(this.screens);
           },
         },
       });

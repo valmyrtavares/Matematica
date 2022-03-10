@@ -18,21 +18,21 @@ export default {
                 {a:0, b:0, c:0, d:"", e:"",f:false}      
             ],
           lux:0,  
-          itemQuestion:"",
+          itemQuestion:"Eu quero uma string",
           postive:0,
           negative:0,
           disable:false,
           count:1,
           seg:0,
           avaliationScreem:0,
-          mathSomaDezena:false
+          mathSomaDezena:0,
+          liberaTela:0
         }       
     },
     props:{somadezena:Boolean,
         teste:String},
     template:`   <div class="main_content">
-    <h1>Somar 1/10</h1>
-    {{somadezena}}
+    <h1 @click="liberaProximosExercicios">Somar Unidades</h1>   
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
@@ -126,17 +126,17 @@ export default {
             return "Seu desempenho é regular"
         }
         if(this.avaliationScreem<8){
-            return "Você já pode tentar um exercício mais difícil"
             this.liberaProximosExercicios()
+            return "Você já pode tentar um exercício mais difícil"
         }
         if(this.avaliationScreem<=10){
-            return "Você já chegou ao ponto máximo desse nível"
             this.liberaProximosExercicios()
+            return "Você já chegou ao ponto máximo desse nível"
         }
     },
     liberaProximosExercicios(){
         this.mathSomaDezena=true      
-        this.$emit("liberaexercicio",this.mathSomaDezena)
+        this.$emit("liberaexercicio",this.liberaTela)
     }
      
     },
