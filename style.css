@@ -34,3 +34,11 @@
 .tempo {
   text-align: center;
 }
+button {
+  color: red;
+  border: none;
+}
+.avaiable {
+  color: green !important;
+  cursor: pointer;
+}

@@ -1,56 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="./vue.min.js"></script>
     <title>Document</title>
-</head>
-<body>  
+  </head>
+  <body>
     <div id="app">
-        <div>
-            <matematica-soma-unidade></matematica-soma-unidade>     
-            <matematica-soma-dezena1></matematica-soma-dezena1>     
-            <matematica-sub-unidade></matematica-sub-unidade>     
-            <matematica-mult21></matematica-mult21>     
-            <matematica-mult22></matematica-mult22>     
-            <matematica-mult-total></matematica-mult-total>     
-        </div>
+
+      <div>
+        <h1>Desafios</h1>
+       
+
+           
+            {{avaiableScreens[0].item}}
+          <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
+          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" >Somas com unidades</button>
+          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)" class="avaiable">Somas com unidades</button>
+          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" class="avaiable">Somas com unidades</button>
+          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" class="avaiable">Somas com unidades</button>
+          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" class="avaiable">Somas com unidades</button>
+        
+         
+
+        <matematica-soma-unidade
+          @liberaexercicio="liberaTelas"
+          v-if="screens[0].item"
+        ></matematica-soma-unidade>
+
+        <matematica-soma-dezena1
+        @liberaexercicio="liberaTelas"
+          v-if="screens[1].item"
+        ></matematica-soma-dezena1>
+        <matematica-sub-unidade v-if="screens[2].item"></matematica-sub-unidade>
+        <matematica-mult21 v-if="screens[3].item"></matematica-mult21>
+        <matematica-mult22 v-if="screens[4].item"></matematica-mult22>
+        <matematica-mult2-complete
+          v-if="screens[5].item"
+        ></matematica-mult2-complete>
+      </div>
     </div>
-    
 
-    <script type="module" >      
+    <script type="module">
+      import MatematicaSomaUnidade from "./MathSomaUnidade.js";
+      import MatematicaSomaDezena1 from "./MathSomaDezena1.js";
+      import MatematicaSubUnidade from "./MathSubUnidade.js";
+      import MatematicaMult21 from "./MathMult2_1.js";
+      import MatematicaMult22 from "./MathMult2_2.js";
+      import MatematicaMult2Complete from "./MathMult2Complete.js";
 
-        import MatematicaSomaUnidade from "./MathSomaUnidade.js"
-        import MatematicaSomaDezena1 from "./MathSomaDezena1.js"
-        import MatematicaSubUnidade from "./MathSubUnidade.js"
-        import MatematicaMult21 from "./MathMult2_1.js"
-        import MatematicaMult22 from "./MathMult2_2.js"
-        import MatematicaMultTotal from "./MathMulTotal.js"
-
-     
-        const vm = new Vue({
-            el: '#app',      
-            components:{
-               MatematicaSomaUnidade,
-                MatematicaSomaDezena1,
-                MatematicaSubUnidade,
-                MatematicaMult21,
-                MatematicaMult22,
-                MatematicaMultTotal
-            }    
-        });
+      const vm = new Vue({
+        el: "#app",
+        components: {
+          MatematicaSomaUnidade,
+          MatematicaSomaDezena1,
+          MatematicaSubUnidade,
+          MatematicaMult21,
+          MatematicaMult22,
+          MatematicaMult2Complete,
+        },
+        data: {
+            boo:false,
+            nome:"Valmyr Tavares",
+          somaUnidade: false,
+          somaDezena: "",
+          testeEmmit: "",
+          screens: [
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+          ],
+          avaiableScreens: [
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+          ],
+        },
+        methods: {
+          liberaTelas(n) {
+            this.avaiableScreens[n].item = false;
+            console.log(this.avaiableScreens);
+          },
+          changeScreen(a) {
+            let i = 0;
+            this.screens;
+            for (i = 0; i < this.screens.length; i++) {
+              this.screens[i].item = false;
+            }
+            this.screens[a].item = true;
+            console.log(this.screens);
+          },
+        },
+      });
     </script>
-    </body>
-    </html>
-      
-       
-      
-    
-
-       
-     
-     
-   
+  </body>
+</html>
