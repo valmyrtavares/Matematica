@@ -13,33 +13,32 @@
 
       <div>
         <h1>Desafios</h1>
-       
 
            
-            {{avaiableScreens[0].item}}
+          
           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" >Somas com unidades</button>
-          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" class="avaiable">Somas com unidades</button>
+          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:ativo}">Soma com Dezenas</button>
+          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)" >Subtração</button>
+          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" >Tabuada 2 Primeira Parte</button>
+          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)">Tabuada 2 Segunda Parte</button>
+          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" >Tabuada 2 Completa</button>
         
          
 
         <matematica-soma-unidade
           @liberaexercicio="liberaTelas"
-          v-if="screens[0].item"
+          v-if="screens[0].item" 
         ></matematica-soma-unidade>
 
         <matematica-soma-dezena1
         @liberaexercicio="liberaTelas"
           v-if="screens[1].item"
         ></matematica-soma-dezena1>
-        <matematica-sub-unidade v-if="screens[2].item"></matematica-sub-unidade>
-        <matematica-mult21 v-if="screens[3].item"></matematica-mult21>
-        <matematica-mult22 v-if="screens[4].item"></matematica-mult22>
+        <matematica-sub-unidade  @liberaexercicio="liberaTelas" v-if="screens[2].item"></matematica-sub-unidade>
+        <matematica-mult21   @liberaexercicio="liberaTelas" v-if="screens[3].item"></matematica-mult21>
+        <matematica-mult22   @liberaexercicio="liberaTelas" v-if="screens[4].item"></matematica-mult22>
         <matematica-mult2-complete
-          v-if="screens[5].item"
+        @liberaexercicio="liberaTelas" v-if="screens[5].item"
         ></matematica-mult2-complete>
       </div>
     </div>
@@ -63,6 +62,7 @@
           MatematicaMult2Complete,
         },
         data: {
+          ativo:false,
             boo:false,
             nome:"Valmyr Tavares",
           somaUnidade: false,
@@ -95,8 +95,7 @@
             for (i = 0; i < this.screens.length; i++) {
               this.screens[i].item = false;
             }
-            this.screens[a].item = true;
-            console.log(this.screens);
+            this.screens[a].item = true;           
           },
         },
       });

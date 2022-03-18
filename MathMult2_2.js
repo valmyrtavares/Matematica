@@ -29,7 +29,7 @@ export default {
         
     },
     template:`   <div class="main_content">
-    <h1>Tabuada do 2 Segunda Parte</h1>
+    <h1 @click="liberaProximosExercicios">Tabuada do 2 Segunda Parte</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
@@ -123,11 +123,17 @@ export default {
             return "Seu desempenho é regular"
         }
         if(this.avaliationScreem<9){
+            this.liberaProximosExercicios()
             return "Você já pode tentar um exercício mais difícil"
         }
         if(this.avaliationScreem<=10){
+            this.liberaProximosExercicios()
             return "Você já chegou ao ponto máximo desse nível"
         }
+    },
+    liberaProximosExercicios(){
+        this.mathSomaDezena=true      
+        this.$emit("liberaexercicio",4)
     }
      
     },
