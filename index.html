@@ -17,11 +17,11 @@
            
           
           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:ativo}">Soma com Dezenas</button>
-          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)" >Subtração</button>
-          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" >Tabuada 2 Primeira Parte</button>
-          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)">Tabuada 2 Segunda Parte</button>
-          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" >Tabuada 2 Completa</button>
+          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
+          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
+          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[1].item}">Tabuada 2 Primeira Parte</button>
+          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[2].item}" >Tabuada 2 Segunda Parte</button>
+          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[3].item}">Tabuada 2 Completa</button>
         
          
 
@@ -95,7 +95,8 @@
             for (i = 0; i < this.screens.length; i++) {
               this.screens[i].item = false;
             }
-            this.screens[a].item = true;           
+           // this.liberaTelas(a)// Ao não conssguir passar de um nível a tela trava e eu  não consigo tentar de novo omesmo nível, se der reload ele zera tudo que eu já consgui
+           this.screens[a].item = true;           
           },
         },
       });
