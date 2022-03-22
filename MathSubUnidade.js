@@ -89,19 +89,19 @@ export default {
             let timeCurrent = 0;
         let firstNote =    this.postive * .5
         
-            if(this.seg < 15){
+            if(this.seg < 35){
                 timeCurrent = 5
             }
-            else if(this.seg < 25){
+            else if(this.seg < 40){
                 timeCurrent = 4
             }
-            else if(this.seg < 30){
+            else if(this.seg < 45){
                 timeCurrent = 3
             }
-            else if(this.seg < 35){
+            else if(this.seg < 50){
                 timeCurrent = 2
             }
-            else if(this.seg < 40){
+            else if(this.seg < 60){
                 timeCurrent = 1
             }else{
                 timeCurrent = 0
@@ -116,8 +116,8 @@ export default {
             }
             if(this.avaliationScreem<=3){
             return "Precisa praticar mais"
-        }
-        if(this.avaliationScreem<=5){
+            }
+            if(this.avaliationScreem<=5){
             return "Está quase acima da média"
             }
             if(this.avaliationScreem<=7){
@@ -160,8 +160,7 @@ export default {
     }
 },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.completeItem)
+        this.showExerciceForEach()        
     }
 }
       

@@ -29,6 +29,7 @@ export default {
         
     },
     template:`   <div class="main_content">
+    <button @click="reset">Recomeçar</button>
     <h1 @click="liberaProximosExercicios">Tabuada do 2 Segunda Parte</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
@@ -134,6 +135,20 @@ export default {
     liberaProximosExercicios(){
         this.mathSomaDezena=true      
         this.$emit("liberaexercicio",4)
+    },
+    reset(){
+        this.showExerciceForEach()
+       for(let i = 0; i<this.completeItem.length;i++){
+        this.completeItem[i].e = ""
+        this.completeItem[i].d = ""
+        this.completeItem[i].f = false
+       }
+       this.avaliationScreem =""
+       clearInterval(this.finish)
+       this.seg=0
+       this.count=1
+       this.postive=0
+       this.negative=0
     }
      
     },
@@ -143,8 +158,7 @@ export default {
     }
 },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.completeItem)
+        this.showExerciceForEach()      
     }
 }
       

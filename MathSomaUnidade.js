@@ -93,19 +93,19 @@ export default {
             let timeCurrent = 0;
         let firstNote =    this.postive * .5
         
-            if(this.seg < 15){
+            if(this.seg < 25){
                 timeCurrent = 5
             }
-            else if(this.seg < 25){
+            else if(this.seg < 30){
                 timeCurrent = 4
             }
-            else if(this.seg < 30){
+            else if(this.seg < 35){
                 timeCurrent = 3
             }
-            else if(this.seg < 35){
+            else if(this.seg < 45){
                 timeCurrent = 2
             }
-            else if(this.seg < 40){
+            else if(this.seg < 50){
                 timeCurrent = 1
             }else{
                 timeCurrent = 0
@@ -127,11 +127,11 @@ export default {
             if(this.avaliationScreem<=7){
                 return "Seu desempenho é regular"
             }
-            if(this.avaliationScreem<8){
+            if(this.avaliationScreem>=8){
                 this.liberaProximosExercicios()
                 return "Você já pode tentar um exercício mais difícil"
             }
-            if(this.avaliationScreem<=10){
+            if(this.avaliationScreem>=9){
                 this.liberaProximosExercicios()
                 return "Você já chegou ao ponto máximo desse nível"
             }

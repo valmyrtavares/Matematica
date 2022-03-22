@@ -137,8 +137,7 @@ export default {
     }
 },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.completeItem)
+        this.showExerciceForEach()      
     }
 }
       

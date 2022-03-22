@@ -90,19 +90,19 @@ export default {
             let timeCurrent = 0;
         let firstNote =    this.postive * .5
         
-            if(this.seg < 25){
+            if(this.seg < 30){
                 timeCurrent = 5
             }
-            else if(this.seg < 30){
+            else if(this.seg < 40){
                 timeCurrent = 4
             }
-            else if(this.seg < 40){
+            else if(this.seg < 45){
                 timeCurrent = 3
             }
-            else if(this.seg < 50){
+            else if(this.seg < 55){
                 timeCurrent = 2
             }
-            else if(this.seg < 55){
+            else if(this.seg < 60){
                 timeCurrent = 1
             }else{
                 timeCurrent = 0
@@ -160,8 +160,7 @@ export default {
         }     
     },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.completeItem)
+        this.showExerciceForEach()        
     }
 }
       

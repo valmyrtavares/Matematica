@@ -17,9 +17,12 @@
           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
           <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
-          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[1].item}">Tabuada 2 Primeira Parte</button>
-          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[2].item}" >Tabuada 2 Segunda Parte</button>
-          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[3].item}">Tabuada 2 Completa</button>       
+          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
+          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
+          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
+          <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
+          <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
+          <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button>          
          
 
         <matematica-soma-unidade
@@ -37,6 +40,11 @@
         <matematica-mult2-complete
         @liberaexercicio="liberaTelas" v-if="screens[5].item"
         ></matematica-mult2-complete>
+        <matematica-mult31   @liberaexercicio="liberaTelas" v-if="screens[6].item"></matematica-mult31>
+        <matematica-mult32   @liberaexercicio="liberaTelas" v-if="screens[7].item"></matematica-mult32>
+        <matematica-mult3-complete
+        @liberaexercicio="liberaTelas" v-if="screens[8].item"
+        ></matematica-mult3-complete>
       </div>
     </div>
 
@@ -47,6 +55,9 @@
       import MatematicaMult21 from "./MathMult2_1.js";
       import MatematicaMult22 from "./MathMult2_2.js";
       import MatematicaMult2Complete from "./MathMult2Complete.js";
+      import MatematicaMult31 from "./MathMult3_1.js";
+      import MatematicaMult32 from "./MathMult3_2.js";
+      import MatematicaMult3Complete from "./MathMult3Complete.js";
 
       const vm = new Vue({
         el: "#app",
@@ -72,6 +83,9 @@
             { item: false },
             { item: false },
             { item: false },
+            { item: false },
+            { item: false },
+            { item: false }
           ],
           avaiableScreens: [
             { item: true },
@@ -79,12 +93,14 @@
             { item: true },
             { item: true },
             { item: true },
+            { item: true },
+            { item: true },
+            { item: true }
           ],
         },
         methods: {
           liberaTelas(n) {
-            this.avaiableScreens[n].item = false;
-            console.log(this.avaiableScreens);
+            this.avaiableScreens[n].item = false;          
           },
           changeScreen(a) {
             let i = 0;

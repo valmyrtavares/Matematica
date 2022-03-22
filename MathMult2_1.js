@@ -29,6 +29,7 @@ export default {
         
     },
     template:`   <div class="main_content">
+    <button @click="reset">Recomeçar</button>
     <h1 @click="liberaProximosExercicios">Tabuada do 2 primeira parte</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
@@ -88,23 +89,23 @@ export default {
          let timeCurrent = 0;
        let firstNote =    this.postive * .5
      
-        if(this.seg < 15){
-            timeCurrent = 5
-        }
-        else if(this.seg < 25){
-            timeCurrent = 4
-        }
-        else if(this.seg < 30){
-            timeCurrent = 3
-        }
-        else if(this.seg < 35){
-            timeCurrent = 2
-        }
-        else if(this.seg < 40){
-            timeCurrent = 1
-        }else{
-            timeCurrent = 0
-        }
+       if(this.seg < 35){
+        timeCurrent = 5
+    }
+    else if(this.seg < 40){
+        timeCurrent = 4
+    }
+    else if(this.seg < 45){
+        timeCurrent = 3
+    }
+    else if(this.seg < 50){
+        timeCurrent = 2
+    }
+    else if(this.seg < 60){
+        timeCurrent = 1
+    }else{
+        timeCurrent = 0
+    }
         this.avaliationScreem = timeCurrent + firstNote 
         this.showAvaliation()
     }, 
@@ -135,6 +136,20 @@ export default {
     liberaProximosExercicios(){
         this.mathSomaDezena=true      
         this.$emit("liberaexercicio",3)
+    },
+    reset(){
+        this.showExerciceForEach()
+       for(let i = 0; i<this.completeItem.length;i++){
+        this.completeItem[i].e = ""
+        this.completeItem[i].d = ""
+        this.completeItem[i].f = false
+       }
+       this.avaliationScreem =""
+       clearInterval(this.finish)
+       this.seg=0
+       this.count=1
+       this.postive=0
+       this.negative=0
     }
      
     },
@@ -144,8 +159,7 @@ export default {
     }
 },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.completeItem)
+        this.showExerciceForEach()        
     }
 }
       
