@@ -1,6 +1,27 @@
 export default {
     name:'MathSomaDezena1',
     // el:"#app",
+    template:`   <div class="main_content">
+    <button @click="reset">Recomeçar</button>
+    <h1 @click="liberaProximosExercicios">Somar 2</h1>
+    <div class="content" v-for="(item, index) in completeItem" :key="index">
+        <div class="coeficientes">
+            <p>{{item.a}}</p>
+            <p>+</p>
+            <p>{{item.b}}</p>
+            <p>=</p>
+        </div>
+        <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" @change="ReadingResult(index)"/>  
+        <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>            
+    </div>      
+    <div class="result" v-if="count > 10">
+        <p>Acertos {{postive}}</p>
+        <p>Erros {{negative}}</p>
+        <p>Sua nota é {{avaliationScreem}} {{showAvaliation()}}</p>
+    </div> 
+    <p class="tempo">Feito {{seg}} Segundos</p>
+
+</div>`,
     data(){
         return{
 
@@ -28,26 +49,7 @@ export default {
         }
         
     },
-    template:`   <div class="main_content">
-    <h1 @click="liberaProximosExercicios">Somar 2</h1>
-    <div class="content" v-for="(item, index) in completeItem" :key="index">
-        <div class="coeficientes">
-            <p>{{item.a}}</p>
-            <p>+</p>
-            <p>{{item.b}}</p>
-            <p>=</p>
-        </div>
-        <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" @change="ReadingResult(index)"/>  
-        <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>            
-    </div>      
-    <div class="result" v-if="count > 10">
-        <p>Acertos {{postive}}</p>
-        <p>Erros {{negative}}</p>
-        <p>Sua nota é {{avaliationScreem}} {{showAvaliation()}}</p>
-    </div> 
-    <p class="tempo">Feito {{seg}} Segundos</p>
 
-</div>`,
     methods:{
         showExerciceForEach(){
             this.completeItem.map((item) => {       
@@ -134,6 +136,20 @@ export default {
         liberaProximosExercicios(){
             this.mathSomaDezena=true      
             this.$emit("liberaexercicio",1)
+        },
+        reset(){
+            this.showExerciceForEach()
+           for(let i = 0; i<this.completeItem.length;i++){
+            this.completeItem[i].e = ""
+            this.completeItem[i].d = ""
+            this.completeItem[i].f = false
+           }
+           this.avaliationScreem =""
+           clearInterval(this.finish)
+           this.seg=0
+           this.count=1
+           this.postive=0
+           this.negative=0
         }
      
     },

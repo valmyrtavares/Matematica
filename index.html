@@ -10,19 +10,16 @@
   </head>
   <body>
     <div id="app">
-
+     
       <div>
         <h1>Desafios</h1>
-
-           
-          
+         
           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
           <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
           <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[1].item}">Tabuada 2 Primeira Parte</button>
           <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[2].item}" >Tabuada 2 Segunda Parte</button>
-          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[3].item}">Tabuada 2 Completa</button>
-        
+          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[3].item}">Tabuada 2 Completa</button>       
          
 
         <matematica-soma-unidade
