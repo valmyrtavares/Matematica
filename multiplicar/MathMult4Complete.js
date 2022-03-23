@@ -30,7 +30,7 @@ export default {
     },
     template:`   <div class="main_content">
     <button @click="reset">Recomeçar</button>
-    <h1 @click="liberaProximosExercicios">Tabuada do 3 </h1>
+    <h1 @click="liberaProximosExercicios">Tabuada do 4 </h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>

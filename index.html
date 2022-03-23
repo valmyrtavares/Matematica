@@ -26,6 +26,7 @@
           <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
           <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
           <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
+          <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>        
          
 
         <matematica-soma-unidade
@@ -53,13 +54,16 @@
         <matematica-mult4-complete
         @liberaexercicio="liberaTelas" v-if="screens[11].item"
         ></matematica-mult4-complete>
+        <matematica-soma-dezena2
+        @liberaexercicio="liberaTelas" v-if="screens[12].item"
+        ></matematica-soma-dezena2>
       </div>
       </div>
     </div>
 
     <script type="module">
-      import MatematicaSomaUnidade from "./MathSomaUnidade.js";
-      import MatematicaSomaDezena1 from "./MathSomaDezena1.js";
+      import MatematicaSomaUnidade from "./soma/MathSomaUnidade.js";
+      import MatematicaSomaDezena1 from "./soma/MathSomaDezena1.js";
       import MatematicaSubUnidade from "./MathSubUnidade.js";
       import MatematicaMult21 from "./multiplicar/MathMult2_1.js";
       import MatematicaMult22 from "./multiplicar/MathMult2_2.js";
@@ -70,6 +74,7 @@
       import MatematicaMult41 from "./multiplicar/MathMult4_1.js";
       import MatematicaMult42 from "./multiplicar/MathMult4_2.js";
       import MatematicaMult4Complete from "./multiplicar/MathMult4Complete.js";
+      import MatematicaSomaDezena2 from "./soma/MathSomaDezena2.js";
 
       const vm = new Vue({
         el: "#app",
@@ -85,7 +90,8 @@
           MatematicaMult3Complete,
           MatematicaMult41,
           MatematicaMult42,
-          MatematicaMult4Complete
+          MatematicaMult4Complete,
+          MatematicaSomaDezena2
         },
         data: {
           ativo:false,
@@ -106,9 +112,11 @@
             { item: false },
             { item: false },
             { item: false },
-            { item: false }
+            { item: false },
+            { item: false },
           ],
           avaiableScreens: [
+            { item: true },
             { item: true },
             { item: true },
             { item: true },
