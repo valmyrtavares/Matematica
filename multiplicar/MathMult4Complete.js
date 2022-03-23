@@ -30,7 +30,7 @@ export default {
     },
     template:`   <div class="main_content">
     <button @click="reset">Recomeçar</button>
-    <h1>Tabuada do 3 </h1>
+    <h1 @click="liberaProximosExercicios">Tabuada do 3 </h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
@@ -52,7 +52,7 @@ export default {
     methods:{
      showExerciceForEach(){
          this.completeItem.map((item) => {       
-            item.a = 3;
+            item.a = 4;
             item.b = Math.floor(Math.random() * (11 - 0)) + 0;
             item.c =item.a * item.b            
          })       
@@ -132,7 +132,7 @@ export default {
     },
     liberaProximosExercicios(){
         this.mathSomaDezena=true      
-        this.$emit("liberaexercicio",8)
+        this.$emit("liberaexercicio",11)
     },
     reset(){
         this.showExerciceForEach()

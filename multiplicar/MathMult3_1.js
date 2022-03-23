@@ -30,7 +30,7 @@ export default {
     },
     template:`   <div class="main_content">
     <button @click="reset">Recomeçar</button>
-    <h1 @click="liberaProximosExercicios">Tabuada do 3 primeira parte</h1>
+    <h1 @click="liberaProximosExercicios">Tabuada do 3 Segunda Parte</h1>
     <div class="content" v-for="(item, index) in completeItem" :key="index">
         <div class="coeficientes">
             <p>{{item.a}}</p>
@@ -53,7 +53,7 @@ export default {
      showExerciceForEach(){
          this.completeItem.map((item) => {       
             item.a = 3;
-            item.b = Math.floor(Math.random() * 5)
+            item.b = Math.floor(Math.random() * 5);
             item.c =item.a * item.b            
          })       
      },
@@ -89,23 +89,23 @@ export default {
          let timeCurrent = 0;
        let firstNote =    this.postive * .5
      
-       if(this.seg < 35){
-        timeCurrent = 5
-    }
-    else if(this.seg < 40){
-        timeCurrent = 4
-    }
-    else if(this.seg < 45){
-        timeCurrent = 3
-    }
-    else if(this.seg < 50){
-        timeCurrent = 2
-    }
-    else if(this.seg < 60){
-        timeCurrent = 1
-    }else{
-        timeCurrent = 0
-    }
+        if(this.seg < 15){
+            timeCurrent = 5
+        }
+        else if(this.seg < 25){
+            timeCurrent = 4
+        }
+        else if(this.seg < 30){
+            timeCurrent = 3
+        }
+        else if(this.seg < 35){
+            timeCurrent = 2
+        }
+        else if(this.seg < 40){
+            timeCurrent = 1
+        }else{
+            timeCurrent = 0
+        }
         this.avaliationScreem = timeCurrent + firstNote 
         this.showAvaliation()
     }, 
@@ -132,7 +132,6 @@ export default {
             return "Você já chegou ao ponto máximo desse nível"
         }
     },
-    
     liberaProximosExercicios(){
         this.mathSomaDezena=true      
         this.$emit("liberaexercicio",6)
@@ -159,8 +158,11 @@ export default {
     }
 },
     mounted: function (){      
-        this.showExerciceForEach()        
+        this.showExerciceForEach()      
     }
 }
+      
+       
+
       
        

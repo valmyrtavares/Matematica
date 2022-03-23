@@ -22,7 +22,10 @@
           <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
           <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
           <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
-          <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button>          
+          <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button> 
+          <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
+          <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
+          <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
          
 
         <matematica-soma-unidade
@@ -39,12 +42,18 @@
         <matematica-mult22   @liberaexercicio="liberaTelas" v-if="screens[4].item"></matematica-mult22>
         <matematica-mult2-complete
         @liberaexercicio="liberaTelas" v-if="screens[5].item"
-        ></matematica-mult2-complete>
-        <matematica-mult31   @liberaexercicio="liberaTelas" v-if="screens[6].item"></matematica-mult31>
+        ></matematica-mult2-complete>       
+        <matematica-mult31  @liberaexercicio="liberaTelas" v-if="screens[6].item"></matematica-mult31>
         <matematica-mult32   @liberaexercicio="liberaTelas" v-if="screens[7].item"></matematica-mult32>
         <matematica-mult3-complete
         @liberaexercicio="liberaTelas" v-if="screens[8].item"
         ></matematica-mult3-complete>
+        <matematica-mult41  @liberaexercicio="liberaTelas" v-if="screens[9].item"></matematica-mult41>
+        <matematica-mult42   @liberaexercicio="liberaTelas" v-if="screens[10].item"></matematica-mult42>
+        <matematica-mult4-complete
+        @liberaexercicio="liberaTelas" v-if="screens[11].item"
+        ></matematica-mult4-complete>
+      </div>
       </div>
     </div>
 
@@ -52,12 +61,15 @@
       import MatematicaSomaUnidade from "./MathSomaUnidade.js";
       import MatematicaSomaDezena1 from "./MathSomaDezena1.js";
       import MatematicaSubUnidade from "./MathSubUnidade.js";
-      import MatematicaMult21 from "./MathMult2_1.js";
-      import MatematicaMult22 from "./MathMult2_2.js";
-      import MatematicaMult2Complete from "./MathMult2Complete.js";
-      import MatematicaMult31 from "./MathMult3_1.js";
-      import MatematicaMult32 from "./MathMult3_2.js";
-      import MatematicaMult3Complete from "./MathMult3Complete.js";
+      import MatematicaMult21 from "./multiplicar/MathMult2_1.js";
+      import MatematicaMult22 from "./multiplicar/MathMult2_2.js";
+      import MatematicaMult2Complete from "./multiplicar/MathMult2Complete.js";
+      import MatematicaMult31 from "./multiplicar/MathMult3_1.js";
+      import MatematicaMult32 from "./multiplicar/MathMult3_2.js";
+      import MatematicaMult3Complete from "./multiplicar/MathMult3Complete.js";
+      import MatematicaMult41 from "./multiplicar/MathMult4_1.js";
+      import MatematicaMult42 from "./multiplicar/MathMult4_2.js";
+      import MatematicaMult4Complete from "./multiplicar/MathMult4Complete.js";
 
       const vm = new Vue({
         el: "#app",
@@ -68,6 +80,12 @@
           MatematicaMult21,
           MatematicaMult22,
           MatematicaMult2Complete,
+          MatematicaMult31,
+          MatematicaMult32,
+          MatematicaMult3Complete,
+          MatematicaMult41,
+          MatematicaMult42,
+          MatematicaMult4Complete
         },
         data: {
           ativo:false,
@@ -85,9 +103,15 @@
             { item: false },
             { item: false },
             { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
             { item: false }
           ],
           avaiableScreens: [
+            { item: true },
+            { item: true },
+            { item: true },
             { item: true },
             { item: true },
             { item: true },
