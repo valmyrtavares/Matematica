@@ -132,7 +132,8 @@
         },
         methods: {
           liberaTelas(n) {
-            this.avaiableScreens[n].item = false;          
+            this.avaiableScreens[n].item = false;    
+            localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
           changeScreen(a) {
             let i = 0;
@@ -144,6 +145,10 @@
            this.screens[a].item = true;           
           },
         },
+        created(){
+          this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
+          console.log(this.avaiableScreens)
+        }
       });
     </script>
   </body>
