@@ -133,21 +133,28 @@
         methods: {
           liberaTelas(n) {
             this.avaiableScreens[n].item = false;    
-            localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
+           localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
           changeScreen(a) {
             let i = 0;
             this.screens;
             for (i = 0; i < this.screens.length; i++) {
               this.screens[i].item = false;
-            }
-           // this.liberaTelas(a)// Ao não conssguir passar de um nível a tela trava e eu  não consigo tentar de novo omesmo nível, se der reload ele zera tudo que eu já consgui
+            }          
            this.screens[a].item = true;           
           },
+          keepData(){
+            if(localStorage.hasOwnProperty("game")){
+              this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
+            }else{
+              for (i = 0; i < this.screens.length; i++) {
+              this.avaiableScreens[i].item = false;
+            }    
+            }
+          }
         },
         created(){
-          this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
-          console.log(this.avaiableScreens)
+        this.  keepData()
         }
       });
     </script>
