@@ -6,16 +6,16 @@ export default {
 
             vueTeste:"Esse é um teste vue",
             completeItem:[
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false},
-                {a:0, b:0, c:0, d:"", e:"",f:false}      
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar" },
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"},
+                {a:0, b:0, c:0, d:"", e:"",f:false, g:"Enviar"}      
             ],
           lux:0,  
           itemQuestion:"",
@@ -38,8 +38,9 @@ export default {
             <p>{{item.b}}</p>
             <p>=</p>
         </div>
-        <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" @change="ReadingResult(index)"/>  
-        <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>            
+        <input  :disabled="item.f" class="" :class="item.e" type="number" v-model="completeItem[index].d" />  
+        <button v-if="item.d!==false" @click="ReadingResult(index)" style="color:green">{{ item.g }}</button>
+        <p v-if="item.d===false" style="color:red; min-width: 160px;">O resultado correto é {{item.c}}</p>             
     </div>      
     <div class="result" v-if="count > 10">
         <p>Acertos {{postive}}</p>
@@ -59,11 +60,12 @@ export default {
      },
      ReadingResult(index){   
             finishTest:0
-        if(this.completeItem[index].a * this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
-            this.completeItem[index].e = "corectItem"
-            this.completeItem[index].d = true
-            this.postive++
-        }else{           
+            if(this.completeItem[index].a * this.completeItem[index].b == parseInt(this.completeItem[index].d)){           
+                this.completeItem[index].e = "corectItem"
+                this.completeItem[index].g = "Resposta Correta"
+                this.completeItem[index].d = true
+                this.postive++
+            }else{                      
             this.completeItem[index].e = "incorectItem"
             this.completeItem[index].d = false
             this.negative++
@@ -137,12 +139,13 @@ export default {
         this.$emit("liberaexercicio",6)
     },
     reset(){
-        this.showExerciceForEach()
-       for(let i = 0; i<this.completeItem.length;i++){
+    this.showExerciceForEach()
+    for(let i = 0; i<this.completeItem.length;i++){
         this.completeItem[i].e = ""
         this.completeItem[i].d = ""
         this.completeItem[i].f = false
-       }
+        this.completeItem[i].g = "Enviar"
+        }
        this.avaliationScreem =""
        clearInterval(this.finish)
        this.seg=0

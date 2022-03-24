@@ -13,20 +13,22 @@
      
       <div>
         <h1>Desafios</h1>
-         
-          <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-          <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
-          <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
-          <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
-          <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
-          <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
-          <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
-          <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
-          <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button> 
-          <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
-          <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
-          <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
-          <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>        
+         <div class="container_title"> 
+           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
+           <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
+           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
+           <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
+           <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
+           <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
+           <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
+           <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
+           <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button> 
+           <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
+           <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
+           <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
+           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>        
+
+         </div>
          
 
         <matematica-soma-unidade

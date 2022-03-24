@@ -42,3 +42,12 @@ button {
   color: green !important;
   cursor: pointer;
 }
+.container_title {
+  display: flex;
+  flex-direction: column;
+}
+.container_title button {
+  margin: 5px;
+  padding: 5px;
+  font-size: 15px;
+}
