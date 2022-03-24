@@ -1,6 +1,6 @@
 .main_content {
   padding: 5px;
-  width: 50%;
+  width: 90%;
   margin: 10px auto;
   border: solid 1px black;
 }
@@ -27,6 +27,10 @@
   display: flex;
   justify-content: space-around;
 }
+.coeficientes p {
+  width: 15px;
+  margin: 0px 5px;
+}
 .result {
   text-align: center;
   border: solid 1px black;
@@ -45,9 +49,11 @@ button {
 .container_title {
   display: flex;
   flex-direction: column;
+  width: 95%;
 }
 .container_title button {
   margin: 5px;
   padding: 5px;
   font-size: 15px;
+  width: 100%;
 }
