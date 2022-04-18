@@ -15,8 +15,8 @@
         <h1>Desafios</h1>
          <div class="container_title"> 
            <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-           <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)" :class="{avaiable:!avaiableScreens[0].item}">Soma com Dezenas</button>
-           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
+           <button  @click="changeScreen(1)"class="avaiable">Soma com Dezenas</button>
+           <!-- <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
            <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
            <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
            <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
@@ -26,21 +26,53 @@
            <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
            <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
            <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
-           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>       
+           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>        -->
 
          </div>
          
 
-        <matematica-soma-unidade
-          @liberaexercicio="liberaTelas"
+        <padrao
+          @liberaexercicio="liberaTelas" 
+          :primeiro_limite=10 
+          :libera_exercicio="0" 
+          :title=titleSomarUnidade 
+          :first=25 
+          :second=30 
+          :third=35
+          :fourth=45
+          :fifth=50
+          :polivariaveis=true        
           v-if="screens[0].item" 
-        ></matematica-soma-unidade>
+        ></padrao>
 
-        <matematica-soma-dezena1
-        @liberaexercicio="liberaTelas"
-          v-if="screens[1].item"
-        ></matematica-soma-dezena1>
-        <matematica-sub-unidade  @liberaexercicio="liberaTelas" v-if="screens[2].item"></matematica-sub-unidade>
+       <padrao
+        @liberaexercicio="liberaTelas"       
+        :libera_exercicio="1" 
+        :title=titleSomarDezena
+        :primeiro_limite=40
+        :first=40 
+        :second=50 
+        :third=60
+        :fourth=65
+        :fifth=75
+        :polivariaveis=true
+        v-if="screens[1].item"
+        ></padrao> -->
+
+        <!-- <padrao  @liberaexercicio="liberaTelas" :libera_exercicio="2" 
+        :title=titleSubtrarir
+        :primeiro_limite=40
+        :segundo_limite=20
+        :terceiro_limite=10
+        :first=40 
+        :second=50 
+        :third=60
+        :fourth=65
+        :fifth=75
+        :polivariaveis=false
+         v-if="screens[2].item">
+        </padrao> 
+
         <matematica-mult21   @liberaexercicio="liberaTelas" v-if="screens[3].item"></matematica-mult21>
         <matematica-mult22   @liberaexercicio="liberaTelas" v-if="screens[4].item"></matematica-mult22>
         <matematica-mult2-complete
@@ -58,12 +90,13 @@
         ></matematica-mult4-complete>
         <matematica-soma-dezena2
         @liberaexercicio="liberaTelas" v-if="screens[12].item"
-        ></matematica-soma-dezena2>
+        ></matematica-soma-dezena2> -->
       </div>
       </div>
     </div>
 
     <script type="module">
+      import padrao from "./soma/default.js";
       import MatematicaSomaUnidade from "./soma/MathSomaUnidade.js";
       import MatematicaSomaDezena1 from "./soma/MathSomaDezena1.js";
       import MatematicaSubUnidade from "./MathSubUnidade.js";
@@ -81,6 +114,7 @@
       const vm = new Vue({
         el: "#app",
         components: {
+          padrao,
           MatematicaSomaUnidade,
           MatematicaSomaDezena1,
           MatematicaSubUnidade,
@@ -96,6 +130,10 @@
           MatematicaSomaDezena2
         },
         data: {
+          nove:9,
+          titleSomarUnidade: "Somar Unidades",
+          titleSomarDezena: "Somar Dezenas",
+          titleSubtrarir:"Subtrair",
           ativo:false,
             boo:false,
             nome:"Valmyr Tavares",
@@ -105,35 +143,36 @@
           screens: [
             { item: false },
             { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
+            // { item: false },
           ],
           avaiableScreens: [
             { item: true },
             { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true }
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true },
+            // { item: true }
           ],
         },
         methods: {
           liberaTelas(n) {
+            
             this.avaiableScreens[n].item = false;    
            localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
@@ -143,7 +182,8 @@
             for (i = 0; i < this.screens.length; i++) {
               this.screens[i].item = false;
             }          
-           this.screens[a].item = true;           
+            this.screens[a].item = true;           
+            reset()
           },
           keepData(){
             if(localStorage.hasOwnProperty("game")){

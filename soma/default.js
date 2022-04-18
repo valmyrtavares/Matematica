@@ -51,14 +51,34 @@ export default {
           liberaTela:0         
         }       
     },       
-    props:['primeiro_limite','libera_exercicio', 'title'],
+    props:['primeiro_limite',
+            'segundo_limite', 
+            'terceiro_limite',
+            'libera_exercicio',
+            'title', 
+            'first', 
+            'second', 
+            'third', 
+            'fourth',
+            'fifth',
+            'polivariaveis',
+            'sinal',          
+        ],
     methods:{
-        showExerciceForEach(){
-            this.completeItem.map((item) => {       
-                item.firstValue = Math.floor(Math.random() * this.primeiro_limite)
-                item.secondValue = Math.floor(Math.random() * this.primeiro_limite)
-                item.result =item.firstValue + item.secondValue            
-            })       
+        showExerciceForEach(){            
+            if(this.polivariaveis){
+                this.completeItem.map((item) => {       
+                    item.firstValue = Math.floor(Math.random() * this.primeiro_limite)
+                    item.secondValue = Math.floor(Math.random() * this.primeiro_limite)
+                    item.result =item.firstValue + item.secondValue            
+                })
+            }else{
+                this.completeItem.map((item) => {       
+                    item.a =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
+                    item.b = Math.floor(Math.random() * this.primeiro_limite)
+                    item.c =item.a - item.b            
+                })  
+            }
         },
         ReadingResult(index){   
                 finishTest:0
@@ -94,19 +114,19 @@ export default {
             let timeCurrent = 0;
         let firstNote =    this.positive * .5
         
-            if(this.seg < 25){
+            if(this.seg < this.first){
                 timeCurrent = 5
             }
-            else if(this.seg < 30){
+            else if(this.seg < this.second){
                 timeCurrent = 4
             }
-            else if(this.seg < 35){
+            else if(this.seg < this.third){
                 timeCurrent = 3
             }
-            else if(this.seg < 45){
+            else if(this.seg < this.fourth){
                 timeCurrent = 2
             }
-            else if(this.seg < 50){
+            else if(this.seg < this.fifth){
                 timeCurrent = 1
             }else{
                 timeCurrent = 0
@@ -141,7 +161,7 @@ export default {
             this.mathSomaDezena=true      
             this.$emit("liberaexercicio",this.libera_exercicio)
         },
-        reset(){
+        reset(){           
         this.showExerciceForEach()
         for(let i = 0; i<this.completeItem.length;i++){
             this.completeItem[i].confirmClass = ""
@@ -163,10 +183,11 @@ export default {
            return (this.itemQuestion ? "corectItem" : "incorectItem")       
         }      
     },
+    created:function(){      
+        console.log("Created Chamado")
+    },
     mounted: function (){      
-        this.showExerciceForEach()
-        console.log(this.primeiroLimite)
-       
+        console.log("mounted Chamado")
     }
 }
       
