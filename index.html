@@ -15,10 +15,9 @@
         <h1>Desafios</h1>
          <div class="container_title"> 
            <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-            <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)":class="{avaiable:!avaiableScreens[0].item}" >Soma Dezenas</button>
-            {{avaiableScreens[0].item}}
-           <!-- <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
-           <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
+            <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)":class="{avaiable:!avaiableScreens[0].item}" >Soma Dezenas</button>           
+           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
+           <!-- <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
            <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
            <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
            <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
@@ -41,7 +40,8 @@
           :second=30 
           :third=35
           :fourth=45
-          :fifth=50
+          :fifth=50          
+          signal='+'
           call_reset=0
           :polivariaveis=true        
           v-if="screens[0].item" 
@@ -57,6 +57,7 @@
         :third=60
         :fourth=65
         :fifth=75
+        signal='+'
         call_reset="1"
         :polivariaveis=true
         v-if="screens[1].item"
@@ -64,7 +65,7 @@
 
         <!-- <padrao  @liberaexercicio="liberaTelas" :libera_exercicio="2" 
         :title=titleSubtrarir
-        :primeira_variavel_numerica=40
+        :primeira_variavel_numerica=9
         :segundo_limite=20
         :terceiro_limite=10
         :first=40 
@@ -72,11 +73,13 @@
         :third=60
         :fourth=65
         :fifth=75
+        signal="-"
+        call_reset="2"
         :polivariaveis=false
          v-if="screens[2].item">
-        </padrao> 
+        </padrao>  -->
 
-        <matematica-mult21   @liberaexercicio="liberaTelas" v-if="screens[3].item"></matematica-mult21>
+         <!--<matematica-mult21   @liberaexercicio="liberaTelas" v-if="screens[3].item"></matematica-mult21>
         <matematica-mult22   @liberaexercicio="liberaTelas" v-if="screens[4].item"></matematica-mult22>
         <matematica-mult2-complete
         @liberaexercicio="liberaTelas" v-if="screens[5].item"
@@ -147,31 +150,31 @@
           screens: [
             { item: false },
             { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
-            // { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
           ],
           avaiableScreens: [
             { item: true },
             { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true },
-            // { item: true }
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true }
           ],
         },
         methods: {
@@ -179,8 +182,7 @@
             this.avaiableScreens[n].item = false;    
            //localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
-          changeScreen(a) {
-            console.log(this.avaiableScreens)
+          changeScreen(a) {           
             let i = 0;
             this.screens;
             for (i = 0; i < this.screens.length; i++) {
@@ -200,7 +202,7 @@
           // }
         },
         created(){
-        this.  keepData()
+        //this.keepData()
         }
       });
     </script>

@@ -7,7 +7,7 @@ export default {
         <div class="content" v-for="(item, index) in completeItem" :key="index">
             <div class="coeficientes">
                 <p>{{item.firstValue}}</p>
-                <p>+</p>
+                <p>{{signal}}</p>
                 <p>{{item.secondValue}}</p>
                 <p>=</p>
             </div>
@@ -61,6 +61,7 @@ export default {
             'third', 
             'fourth',
             'fifth',
+            'signal',
             'polivariaveis',
             'call_reset',          
         ],
@@ -80,9 +81,17 @@ export default {
                 })  
             }
         },
-        ReadingResult(index){   
-                finishTest:0
-            if(this.completeItem[index].firstValue + this.completeItem[index].secondValue == parseInt(this.completeItem[index].writtenRestult)){           
+        verificaEval(value1, operation, value2) {
+            let op = {
+              '+': (x, y) => x + y,
+              '-': (x, y) => x - y,
+              '/': (x, y) => x / y,
+              '*': (x, y) => x * y
+            }
+            return op[operation](value1, value2)
+        },
+        ReadingResult(index){          
+            if(this.verificaEval(this.completeItem[index].firstValue, this.signal, this.completeItem[index].secondValue) == parseInt(this.completeItem[index].writtenRestult)){           
                 this.completeItem[index].confirmClass = "corectItem"
                 this.completeItem[index].writtenRestult = true
                 this.completeItem[index].Label = "Resposta Correta"
@@ -181,7 +190,11 @@ export default {
     computed:{
         res(){
            return (this.itemQuestion ? "corectItem" : "incorectItem")       
+        }, 
+        sinal(){
+            this.signal==="+" ? "+" : "-" ;
         }      
+
     },  
     watch:{
         call_reset(){
