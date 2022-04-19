@@ -51,7 +51,7 @@ export default {
           liberaTela:0         
         }       
     },       
-    props:['primeiro_limite',
+    props:['primeira_variavel_numerica',
             'segundo_limite', 
             'terceiro_limite',
             'libera_exercicio',
@@ -62,20 +62,20 @@ export default {
             'fourth',
             'fifth',
             'polivariaveis',
-            'sinal',          
+            'call_reset',          
         ],
     methods:{
         showExerciceForEach(){            
             if(this.polivariaveis){
                 this.completeItem.map((item) => {       
-                    item.firstValue = Math.floor(Math.random() * this.primeiro_limite)
-                    item.secondValue = Math.floor(Math.random() * this.primeiro_limite)
+                    item.firstValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
+                    item.secondValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
                     item.result =item.firstValue + item.secondValue            
                 })
             }else{
                 this.completeItem.map((item) => {       
                     item.a =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
-                    item.b = Math.floor(Math.random() * this.primeiro_limite)
+                    item.b = Math.floor(Math.random() * this.primeira_variavel_numerica)
                     item.c =item.a - item.b            
                 })  
             }
@@ -182,12 +182,14 @@ export default {
         res(){
            return (this.itemQuestion ? "corectItem" : "incorectItem")       
         }      
+    },  
+    watch:{
+        call_reset(){
+            this.reset()
+        }
     },
-    created:function(){      
-        console.log("Created Chamado")
-    },
-    mounted: function (){      
-        console.log("mounted Chamado")
+    mounted: function (){             
+        this.reset()
     }
 }
       

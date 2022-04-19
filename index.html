@@ -15,7 +15,8 @@
         <h1>Desafios</h1>
          <div class="container_title"> 
            <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-           <button  @click="changeScreen(1)"class="avaiable">Soma com Dezenas</button>
+            <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)":class="{avaiable:!avaiableScreens[0].item}" >Soma Dezenas</button>
+            {{avaiableScreens[0].item}}
            <!-- <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
            <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
            <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
@@ -33,7 +34,7 @@
 
         <padrao
           @liberaexercicio="liberaTelas" 
-          :primeiro_limite=10 
+          :primeira_variavel_numerica=10 
           :libera_exercicio="0" 
           :title=titleSomarUnidade 
           :first=25 
@@ -41,6 +42,7 @@
           :third=35
           :fourth=45
           :fifth=50
+          call_reset=0
           :polivariaveis=true        
           v-if="screens[0].item" 
         ></padrao>
@@ -49,19 +51,20 @@
         @liberaexercicio="liberaTelas"       
         :libera_exercicio="1" 
         :title=titleSomarDezena
-        :primeiro_limite=40
+        :primeira_variavel_numerica=40
         :first=40 
         :second=50 
         :third=60
         :fourth=65
         :fifth=75
+        call_reset="1"
         :polivariaveis=true
         v-if="screens[1].item"
-        ></padrao> -->
+        ></padrao>
 
         <!-- <padrao  @liberaexercicio="liberaTelas" :libera_exercicio="2" 
         :title=titleSubtrarir
-        :primeiro_limite=40
+        :primeira_variavel_numerica=40
         :segundo_limite=20
         :terceiro_limite=10
         :first=40 
@@ -97,43 +100,44 @@
 
     <script type="module">
       import padrao from "./soma/default.js";
-      import MatematicaSomaUnidade from "./soma/MathSomaUnidade.js";
-      import MatematicaSomaDezena1 from "./soma/MathSomaDezena1.js";
-      import MatematicaSubUnidade from "./MathSubUnidade.js";
-      import MatematicaMult21 from "./multiplicar/MathMult2_1.js";
-      import MatematicaMult22 from "./multiplicar/MathMult2_2.js";
-      import MatematicaMult2Complete from "./multiplicar/MathMult2Complete.js";
-      import MatematicaMult31 from "./multiplicar/MathMult3_1.js";
-      import MatematicaMult32 from "./multiplicar/MathMult3_2.js";
-      import MatematicaMult3Complete from "./multiplicar/MathMult3Complete.js";
-      import MatematicaMult41 from "./multiplicar/MathMult4_1.js";
-      import MatematicaMult42 from "./multiplicar/MathMult4_2.js";
-      import MatematicaMult4Complete from "./multiplicar/MathMult4Complete.js";
-      import MatematicaSomaDezena2 from "./soma/MathSomaDezena2.js";
+      // import MatematicaSomaUnidade from "./soma/MathSomaUnidade.js";
+      // import MatematicaSomaDezena1 from "./soma/MathSomaDezena1.js";
+      // import MatematicaSubUnidade from "./MathSubUnidade.js";
+      // import MatematicaMult21 from "./multiplicar/MathMult2_1.js";
+      // import MatematicaMult22 from "./multiplicar/MathMult2_2.js";
+      // import MatematicaMult2Complete from "./multiplicar/MathMult2Complete.js";
+      // import MatematicaMult31 from "./multiplicar/MathMult3_1.js";
+      // import MatematicaMult32 from "./multiplicar/MathMult3_2.js";
+      // import MatematicaMult3Complete from "./multiplicar/MathMult3Complete.js";
+      // import MatematicaMult41 from "./multiplicar/MathMult4_1.js";
+      // import MatematicaMult42 from "./multiplicar/MathMult4_2.js";
+      // import MatematicaMult4Complete from "./multiplicar/MathMult4Complete.js";
+      // import MatematicaSomaDezena2 from "./soma/MathSomaDezena2.js";
 
       const vm = new Vue({
         el: "#app",
         components: {
           padrao,
-          MatematicaSomaUnidade,
-          MatematicaSomaDezena1,
-          MatematicaSubUnidade,
-          MatematicaMult21,
-          MatematicaMult22,
-          MatematicaMult2Complete,
-          MatematicaMult31,
-          MatematicaMult32,
-          MatematicaMult3Complete,
-          MatematicaMult41,
-          MatematicaMult42,
-          MatematicaMult4Complete,
-          MatematicaSomaDezena2
+          // MatematicaSomaUnidade,
+          // MatematicaSomaDezena1,
+          // MatematicaSubUnidade,
+          // MatematicaMult21,
+          // MatematicaMult22,
+          // MatematicaMult2Complete,
+          // MatematicaMult31,
+          // MatematicaMult32,
+          // MatematicaMult3Complete,
+          // MatematicaMult41,
+          // MatematicaMult42,
+          // MatematicaMult4Complete,
+          // MatematicaSomaDezena2
         },
         data: {
           nove:9,
           titleSomarUnidade: "Somar Unidades",
           titleSomarDezena: "Somar Dezenas",
           titleSubtrarir:"Subtrair",
+          reset:0,
           ativo:false,
             boo:false,
             nome:"Valmyr Tavares",
@@ -171,29 +175,29 @@
           ],
         },
         methods: {
-          liberaTelas(n) {
-            
+          liberaTelas(n) {                        
             this.avaiableScreens[n].item = false;    
-           localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
+           //localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
           changeScreen(a) {
+            console.log(this.avaiableScreens)
             let i = 0;
             this.screens;
             for (i = 0; i < this.screens.length; i++) {
               this.screens[i].item = false;
             }          
-            this.screens[a].item = true;           
-            reset()
+            this.screens[a].item = true;          
+           
           },
-          keepData(){
-            if(localStorage.hasOwnProperty("game")){
-              this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
-            }else{
-              for (i = 0; i < this.screens.length; i++) {
-              this.avaiableScreens[i].item = false;
-            }    
-            }
-          }
+          // keepData(){
+          //   if(localStorage.hasOwnProperty("game")){
+          //     this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
+          //   }else{
+          //     for (let i = 0; i < this.screens.length; i++) {
+          //     this.avaiableScreens[i].item = false;
+          //   }    
+          //   }
+          // }
         },
         created(){
         this.  keepData()
