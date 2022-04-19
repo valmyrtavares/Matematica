@@ -17,16 +17,16 @@
            <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
             <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)":class="{avaiable:!avaiableScreens[0].item}" >Soma Dezenas</button>           
            <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
-           <!-- <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
-           <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
-           <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
+            <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
+            <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
+            <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
            <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
            <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
            <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button> 
            <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
            <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
            <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
-           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>        -->
+           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>       
 
          </div>
          
@@ -35,7 +35,7 @@
           @liberaexercicio="liberaTelas" 
           :primeira_variavel_numerica=10 
           :libera_exercicio="0" 
-          :title=titleSomarUnidade 
+          title= "Somar Unidades"
           :first=25 
           :second=30 
           :third=35
@@ -43,14 +43,14 @@
           :fifth=50          
           signal='+'
           call_reset=0
-          :polivariaveis=true        
+          :polivariaveis=1      
           v-if="screens[0].item" 
         ></padrao>
 
        <padrao
         @liberaexercicio="liberaTelas"       
         :libera_exercicio="1" 
-        :title=titleSomarDezena
+        title="Somar Dezenas"
         :primeira_variavel_numerica=40
         :first=40 
         :second=50 
@@ -59,12 +59,14 @@
         :fifth=75
         signal='+'
         call_reset="1"
-        :polivariaveis=true
+        :polivariaveis=1
         v-if="screens[1].item"
         ></padrao>
 
-         <padrao  @liberaexercicio="liberaTelas" :libera_exercicio="2" 
-        :title=titleSubtrarir
+         <padrao
+        @liberaexercicio="liberaTelas"
+        :libera_exercicio="2" 
+        title="Subtrair"
         :primeira_variavel_numerica=9
         :segundo_limite=20
         :terceiro_limite=10
@@ -75,71 +77,201 @@
         :fifth=75
         signal='-'
         call_reset="2"
-        :polivariaveis=false
+        :polivariaveis=2
          v-if="screens[2].item">
         </padrao>  
 
-         <!--<matematica-mult21   @liberaexercicio="liberaTelas" v-if="screens[3].item"></matematica-mult21>
-        <matematica-mult22   @liberaexercicio="liberaTelas" v-if="screens[4].item"></matematica-mult22>
-        <matematica-mult2-complete
-        @liberaexercicio="liberaTelas" v-if="screens[5].item"
-        ></matematica-mult2-complete>       
-        <matematica-mult31  @liberaexercicio="liberaTelas" v-if="screens[6].item"></matematica-mult31>
-        <matematica-mult32   @liberaexercicio="liberaTelas" v-if="screens[7].item"></matematica-mult32>
-        <matematica-mult3-complete
-        @liberaexercicio="liberaTelas" v-if="screens[8].item"
-        ></matematica-mult3-complete>
-        <matematica-mult41  @liberaexercicio="liberaTelas" v-if="screens[9].item"></matematica-mult41>
-        <matematica-mult42   @liberaexercicio="liberaTelas" v-if="screens[10].item"></matematica-mult42>
-        <matematica-mult4-complete
-        @liberaexercicio="liberaTelas" v-if="screens[11].item"
-        ></matematica-mult4-complete>
-        <matematica-soma-dezena2
-        @liberaexercicio="liberaTelas" v-if="screens[12].item"
-        ></matematica-soma-dezena2> -->
-      </div>
+        <padrao
+         @liberaexercicio="liberaTelas"
+         :libera_exercicio="3" 
+         title="Tabuada do dois"
+         :primeira_variavel_numerica=2
+         :segundo_limite=5
+         :terceiro_limite=10
+         :first=40 
+         :second=50 
+         :third=60
+         :fourth=65
+         :fifth=75
+         signal='*'
+         call_reset="3"
+         :polivariaveis=3
+          v-if="screens[3].item">
+        </padrao>
+
+        <padrao
+        @liberaexercicio="liberaTelas"
+        :libera_exercicio="4" 
+        title="Tabuada do dois Segunda parte"
+        :primeira_variavel_numerica=2
+        :segundo_limite=11
+        :terceiro_limite=6
+        :first=40 
+        :second=50 
+        :third=60
+        :fourth=65
+        :fifth=75
+        signal='*'
+        call_reset="4"
+        :polivariaveis=4
+         v-if="screens[4].item">
+       </padrao>
+
+       <padrao
+       @liberaexercicio="liberaTelas"
+       :libera_exercicio="5" 
+       title="Tabuada do dois Completa"
+       :primeira_variavel_numerica=2
+       :segundo_limite=11
+       :terceiro_limite=0
+       :first=40 
+       :second=50 
+       :third=60
+       :fourth=65
+       :fifth=75
+       signal='*'
+       call_reset="5"
+       :polivariaveis=4
+        v-if="screens[5].item">
+      </padrao>
+
+      <padrao
+      @liberaexercicio="liberaTelas"
+      :libera_exercicio="6" 
+      title="Tabuada do três"
+      :primeira_variavel_numerica=3
+      :segundo_limite=5
+      :terceiro_limite=10
+      :first=40 
+      :second=50 
+      :third=60
+      :fourth=65
+      :fifth=75
+      signal='*'
+      call_reset="6"
+      :polivariaveis=3
+       v-if="screens[6].item">
+     </padrao>
+
+     <padrao
+     @liberaexercicio="liberaTelas"
+     :libera_exercicio="7" 
+     title="Tabuada do três Segunda parte"
+     :primeira_variavel_numerica=3
+     :segundo_limite=11
+     :terceiro_limite=6
+     :first=40 
+     :second=50 
+     :third=60
+     :fourth=65
+     :fifth=75
+     signal='*'
+     call_reset="7"
+     :polivariaveis=4
+      v-if="screens[7].item">
+    </padrao>
+
+    <padrao
+    @liberaexercicio="liberaTelas"
+    :libera_exercicio="8" 
+    title="Tabuada do trêS Completa"
+    :primeira_variavel_numerica=3
+    :segundo_limite=11
+    :terceiro_limite=0
+    :first=40 
+    :second=50 
+    :third=60
+    :fourth=65
+    :fifth=75
+    signal='*'
+    call_reset="8"
+    :polivariaveis=4
+     v-if="screens[8].item">
+   </padrao>
+
+   <padrao
+   @liberaexercicio="liberaTelas"
+   :libera_exercicio="9" 
+   title="Tabuada do quatro"
+   :primeira_variavel_numerica=4
+   :segundo_limite=5
+   :terceiro_limite=10
+   :first=40 
+   :second=50 
+   :third=60
+   :fourth=65
+   :fifth=75
+   signal='*'
+   call_reset="9"
+   :polivariaveis=3
+    v-if="screens[9].item">
+  </padrao>
+
+  <padrao
+  @liberaexercicio="liberaTelas"
+  :libera_exercicio="10" 
+  title="Tabuada do três Segunda parte"
+  :primeira_variavel_numerica=4
+  :segundo_limite=11
+  :terceiro_limite=6
+  :first=40 
+  :second=50 
+  :third=60
+  :fourth=65
+  :fifth=75
+  signal='*'
+  call_reset="10"
+  :polivariaveis=4
+   v-if="screens[10].item">
+ </padrao>
+
+ <padrao
+ @liberaexercicio="liberaTelas"
+ :libera_exercicio="11" 
+ title="Tabuada do quatro Completa"
+ :primeira_variavel_numerica=4
+ :segundo_limite=11
+ :terceiro_limite=0
+ :first=40 
+ :second=50 
+ :third=60
+ :fourth=65
+ :fifth=75
+ signal='*'
+ call_reset="11"
+ :polivariaveis=4
+  v-if="screens[11].item">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"       
+:libera_exercicio="12" 
+title="Somar Dezenas segunda parte"
+:primeira_variavel_numerica=90
+:first=55
+:second=65
+:third=75
+:fourth=90
+:fifth=110
+signal='+'
+call_reset="12"
+:polivariaveis=1
+v-if="screens[12].item"
+></padrao>
+</div>
       </div>
     </div>
 
     <script type="module">
-      import padrao from "./soma/default.js";
-      // import MatematicaSomaUnidade from "./soma/MathSomaUnidade.js";
-      // import MatematicaSomaDezena1 from "./soma/MathSomaDezena1.js";
-      // import MatematicaSubUnidade from "./MathSubUnidade.js";
-      // import MatematicaMult21 from "./multiplicar/MathMult2_1.js";
-      // import MatematicaMult22 from "./multiplicar/MathMult2_2.js";
-      // import MatematicaMult2Complete from "./multiplicar/MathMult2Complete.js";
-      // import MatematicaMult31 from "./multiplicar/MathMult3_1.js";
-      // import MatematicaMult32 from "./multiplicar/MathMult3_2.js";
-      // import MatematicaMult3Complete from "./multiplicar/MathMult3Complete.js";
-      // import MatematicaMult41 from "./multiplicar/MathMult4_1.js";
-      // import MatematicaMult42 from "./multiplicar/MathMult4_2.js";
-      // import MatematicaMult4Complete from "./multiplicar/MathMult4Complete.js";
-      // import MatematicaSomaDezena2 from "./soma/MathSomaDezena2.js";
+      import padrao from "./components/default.js";    
 
       const vm = new Vue({
         el: "#app",
         components: {
-          padrao,
-          // MatematicaSomaUnidade,
-          // MatematicaSomaDezena1,
-          // MatematicaSubUnidade,
-          // MatematicaMult21,
-          // MatematicaMult22,
-          // MatematicaMult2Complete,
-          // MatematicaMult31,
-          // MatematicaMult32,
-          // MatematicaMult3Complete,
-          // MatematicaMult41,
-          // MatematicaMult42,
-          // MatematicaMult4Complete,
-          // MatematicaSomaDezena2
+          padrao,          
         },
         data: {
-          nove:9,
-          titleSomarUnidade: "Somar Unidades",
-          titleSomarDezena: "Somar Dezenas",
-          titleSubtrarir:"Subtrair",
+          nove:9,       
           reset:0,
           ativo:false,
             boo:false,
@@ -161,8 +293,17 @@
             { item: false },
             { item: false },
             { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
           ],
           avaiableScreens: [
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
+            { item: true },
             { item: true },
             { item: true },
             { item: true },
