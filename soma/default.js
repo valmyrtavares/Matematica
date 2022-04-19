@@ -75,9 +75,9 @@ export default {
                 })
             }else{
                 this.completeItem.map((item) => {       
-                    item.a =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
-                    item.b = Math.floor(Math.random() * this.primeira_variavel_numerica)
-                    item.c =item.a - item.b            
+                    item.firstValue =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
+                    item.secondValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
+                    item.result = this.verificaEval(item.firstValue,this.signal, item.secondValue)            
                 })  
             }
         },
