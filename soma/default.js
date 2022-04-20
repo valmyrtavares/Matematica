@@ -42,6 +42,7 @@ export default {
           itemQuestion:"Eu quero uma string",
           positive:0,          
           negative:0,
+          perpetou: this.reset,
           disable:false,
           partial_answer:"1243",
           count:1,
@@ -51,11 +52,17 @@ export default {
           liberaTela:0         
         }       
     },       
+    watch:{
+        perpetou(){
+            this.resets()
+        }
+    },
     props:['primeiro_limite',
             'segundo_limite', 
             'terceiro_limite',
             'libera_exercicio',
             'title', 
+            'reset',
             'first', 
             'second', 
             'third', 
@@ -161,7 +168,7 @@ export default {
             this.mathSomaDezena=true      
             this.$emit("liberaexercicio",this.libera_exercicio)
         },
-        reset(){           
+        resets(){           
         this.showExerciceForEach()
         for(let i = 0; i<this.completeItem.length;i++){
             this.completeItem[i].confirmClass = ""
