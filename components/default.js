@@ -7,7 +7,7 @@ export default {
         <div class="content" v-for="(item, index) in completeItem" :key="index">
             <div class="coeficientes">
                 <p>{{item.firstValue}}</p>
-                <p>+</p>
+                <p>{{signal}}</p>
                 <p>{{item.secondValue}}</p>
                 <p>=</p>
             </div>
@@ -52,12 +52,7 @@ export default {
           liberaTela:0         
         }       
     },       
-    watch:{
-        perpetou(){
-            this.resets()
-        }
-    },
-    props:['primeiro_limite',
+    props:['primeira_variavel_numerica',
             'segundo_limite', 
             'terceiro_limite',
             'libera_exercicio',
@@ -68,28 +63,52 @@ export default {
             'third', 
             'fourth',
             'fifth',
+            'signal',
             'polivariaveis',
-            'sinal',          
+            'call_reset',          
         ],
     methods:{
         showExerciceForEach(){            
-            if(this.polivariaveis){
+            if(this.polivariaveis===1){
                 this.completeItem.map((item) => {       
-                    item.firstValue = Math.floor(Math.random() * this.primeiro_limite)
-                    item.secondValue = Math.floor(Math.random() * this.primeiro_limite)
+                    item.firstValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
+                    item.secondValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
                     item.result =item.firstValue + item.secondValue            
                 })
-            }else{
+            }
+            if(this.polivariaveis===2){
                 this.completeItem.map((item) => {       
-                    item.a =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
-                    item.b = Math.floor(Math.random() * this.primeiro_limite)
-                    item.c =item.a - item.b            
+                    item.firstValue =  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
+                    item.secondValue = Math.floor(Math.random() * this.primeira_variavel_numerica)
+                    item.result = this.verificaEval(item.firstValue,this.signal, item.secondValue)            
                 })  
+            } 
+            if(this.polivariaveis===3){
+                this.completeItem.map((item) => {       
+                    item.firstValue = this.primeira_variavel_numerica;
+                    item.secondValue = Math.floor(Math.random() * this.segundo_limite)
+                    item.result =item.firstValue * item.secondValue            
+                }) 
+            }
+            if(this.polivariaveis===4){
+                this.completeItem.map((item) => {       
+                    item.firstValue = this.primeira_variavel_numerica;
+                    item.secondValue = Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite;
+                    item.result =item.firstValue * item.secondValue            
+                 })   
             }
         },
-        ReadingResult(index){   
-                finishTest:0
-            if(this.completeItem[index].firstValue + this.completeItem[index].secondValue == parseInt(this.completeItem[index].writtenRestult)){           
+        verificaEval(value1, operation, value2) {
+            let op = {
+              '+': (x, y) => x + y,
+              '-': (x, y) => x - y,
+              '/': (x, y) => x / y,
+              '*': (x, y) => x * y
+            }
+            return op[operation](value1, value2)
+        },
+        ReadingResult(index){          
+            if(this.verificaEval(this.completeItem[index].firstValue, this.signal, this.completeItem[index].secondValue) == parseInt(this.completeItem[index].writtenRestult)){           
                 this.completeItem[index].confirmClass = "corectItem"
                 this.completeItem[index].writtenRestult = true
                 this.completeItem[index].Label = "Resposta Correta"
@@ -188,13 +207,19 @@ export default {
     computed:{
         res(){
            return (this.itemQuestion ? "corectItem" : "incorectItem")       
+        }, 
+        sinal(){
+            this.signal==="+" ? "+" : "-" ;
         }      
+
+    },  
+    watch:{
+        call_reset(){
+            this.reset()
+        }
     },
-    created:function(){      
-        console.log("Created Chamado")
-    },
-    mounted: function (){      
-        console.log("mounted Chamado")
+    mounted: function (){             
+        this.reset()
     }
 }
       
