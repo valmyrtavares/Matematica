@@ -1,8 +1,8 @@
 export default {
     name:'MathSomaUnidade',
-    // el:"#app",
+     //el:"#app",
     template:`   <div class="main_content">
-    <button @click="reset">Recomeçar</button>
+    <button @click="redefiningGameScreen">Recomeçar</button>
         <h1 @click="liberaProximosExercicios">{{title}}</h1>   
         <div class="content" v-for="(item, index) in completeItem" :key="index">
             <div class="coeficientes">
@@ -42,7 +42,7 @@ export default {
           itemQuestion:"Eu quero uma string",
           positive:0,          
           negative:0,
-          perpetou: this.reset,
+          //perpetou: this.reset,
           disable:false,
           partial_answer:"1243",
           count:1,
@@ -167,7 +167,7 @@ export default {
             }
             if(this.avaliationScreem<=3){
             return "Precisa praticar mais"
-        }
+            }
             if(this.avaliationScreem<=5){
             return "Está quase acima da média"
             }
@@ -183,24 +183,30 @@ export default {
                 return "Você já chegou ao ponto máximo desse nível"
             }
         },
-        liberaProximosExercicios(){
+        liberaProximosExercicios(){            
             this.mathSomaDezena=true      
             this.$emit("liberaexercicio",this.libera_exercicio)
         },
-        resets(){           
-        this.showExerciceForEach()
-        for(let i = 0; i<this.completeItem.length;i++){
-            this.completeItem[i].confirmClass = ""
-            this.completeItem[i].writtenRestult = ""
-            this.completeItem[i].enabling = false
-            this.completeItem[i].Label = "Enviar"
-        }
-           this.avaliationScreem =""
-           clearInterval(this.finish)
-           this.seg=0
-           this.count=1
-           this.positive=0
-           this.negative=0
+        
+        redefiningGameScreen(){        
+               
+            this.showExerciceForEach()
+            for(let i = 0; i<this.completeItem.length;i++){
+                this.completeItem[i].confirmClass = ""
+                this.completeItem[i].writtenRestult = ""
+                this.completeItem[i].enabling = false
+                this.completeItem[i].Label = "Enviar"
+            }
+            this.avaliationScreem =""
+            clearInterval(this.finish)
+            this.seg=0
+            this.count=1
+            this.positive=0
+            this.negative=0
+        },
+        testeWatch(){
+            debugger
+            console.log("teste")
         }
      
     },
@@ -214,12 +220,13 @@ export default {
 
     },  
     watch:{
-        call_reset(){
-            this.reset()
+        call_reset(){            
+            this.redefiningGameScreen()
         }
     },
     mounted: function (){             
-        this.reset()
+        this.redefiningGameScreen()
+        console.log("testando")
     }
 }
       

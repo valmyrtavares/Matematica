@@ -11,245 +11,227 @@
   <body>
     <div id="app">
      
-      <div>
-        <h1>Desafios</h1>
-         <!-- <div class="container_title"> 
-           <button  @click="changeScreen(0)" class="avaiable">Somas com unidades</button>
-            <button :disabled="avaiableScreens[0].item" @click="changeScreen(1)":class="{avaiable:!avaiableScreens[0].item}" >Soma Dezenas</button>           
-           <button :disabled="avaiableScreens[1].item" @click="changeScreen(2)":class="{avaiable:!avaiableScreens[1].item}" >Subtração</button>
-            <button :disabled="avaiableScreens[2].item" @click="changeScreen(3)" :class="{avaiable:!avaiableScreens[2].item}">Tabuada 2 Primeira Parte</button>
-            <button :disabled="avaiableScreens[3].item" @click="changeScreen(4)" :class="{avaiable:!avaiableScreens[3].item}" >Tabuada 2 Segunda Parte</button>
-            <button :disabled="avaiableScreens[4].item" @click="changeScreen(5)" :class="{avaiable:!avaiableScreens[4].item}">Tabuada 2 Completa</button>    
-           <button :disabled="avaiableScreens[5].item" @click="changeScreen(6)" :class="{avaiable:!avaiableScreens[5].item}">Tabuada 3 Primeira Parte</button>
-           <button :disabled="avaiableScreens[6].item" @click="changeScreen(7)" :class="{avaiable:!avaiableScreens[6].item}" >Tabuada 3 Segunda Parte</button>
-           <button :disabled="avaiableScreens[7].item" @click="changeScreen(8)" :class="{avaiable:!avaiableScreens[7].item}">Tabuada 3 Completa</button> 
-           <button :disabled="avaiableScreens[8].item" @click="changeScreen(9)" :class="{avaiable:!avaiableScreens[8].item}">Tabuada 4 Primeira Parte</button>
-           <button :disabled="avaiableScreens[9].item" @click="changeScreen(10)" :class="{avaiable:!avaiableScreens[9].item}" >Tabuada 4 Segunda Parte</button>
-           <button :disabled="avaiableScreens[10].item" @click="changeScreen(11)" :class="{avaiable:!avaiableScreens[10].item}">Tabuada 4 Completa</button>        
-           <button :disabled="avaiableScreens[11].item" @click="changeScreen(12)" :class="{avaiable:!avaiableScreens[11].item}">Soma com Dezenas Segunda parte</button>       
-
-         </div> -->
-         <div class="container_title" >
-          <button v-for="item in MenuList" :key="item.id" :disabled="item.disabledFunction" @click="changeScreen(item.id)" :class="item.avaiableClass" >{{item.titleButton}}</button>  
-         </div>
-         
-
-        <padrao
-          @liberaexercicio="liberaTelas" 
-          :primeira_variavel_numerica=10 
-          :libera_exercicio="0" 
-          title= "Somar Unidades"
-          :first=25 
-          :second=30 
-          :third=35
-          :fourth=45
-          :fifth=50          
-          signal='+'
-          call_reset=0
-          :polivariaveis=1      
-          v-if="screens[0].item" 
-        ></padrao>
-
-       <padrao
-        @liberaexercicio="liberaTelas"       
-        :libera_exercicio="1" 
-        title="Somar Dezenas"
-        :primeira_variavel_numerica=40
-        :first=40 
-        :reset="2"
-        :second=50 
-        :third=60
-        :fourth=65
-        :fifth=75
-        signal='+'
-        call_reset="1"
-        :polivariaveis=1
-        v-if="screens[1].item"
-        ></padrao>
-
-         <padrao
-        @liberaexercicio="liberaTelas"
-        :libera_exercicio="2" 
-        title="Subtrair"
-        :primeira_variavel_numerica=9
-        :segundo_limite=20
-        :terceiro_limite=10
-        :first=40 
-        :second=50 
-        :third=60
-        :fourth=65
-        :fifth=75
-        signal='-'
-        call_reset="2"
-        :polivariaveis=2
-         v-if="screens[2].item">
-        </padrao>  
-
-        <padrao
-         @liberaexercicio="liberaTelas"
-         :libera_exercicio="3" 
-         title="Tabuada do dois"
-         :primeira_variavel_numerica=2
-         :segundo_limite=5
-         :terceiro_limite=10
-         :first=40 
-         :second=50 
-         :third=60
-         :fourth=65
-         :fifth=75
-         signal='*'
-         call_reset="3"
-         :polivariaveis=3
-          v-if="screens[3].item">
-        </padrao>
-
-        <padrao
-        @liberaexercicio="liberaTelas"
-        :libera_exercicio="4" 
-        title="Tabuada do dois Segunda parte"
-        :primeira_variavel_numerica=2
-        :segundo_limite=11
-        :terceiro_limite=6
-        :first=40 
-        :second=50 
-        :third=60
-        :fourth=65
-        :fifth=75
-        signal='*'
-        call_reset="4"
-        :polivariaveis=4
-         v-if="screens[4].item">
-       </padrao>
-
-       <padrao
-       @liberaexercicio="liberaTelas"
-       :libera_exercicio="5" 
-       title="Tabuada do dois Completa"
-       :primeira_variavel_numerica=2
-       :segundo_limite=11
-       :terceiro_limite=0
-       :first=40 
-       :second=50 
-       :third=60
-       :fourth=65
-       :fifth=75
-       signal='*'
-       call_reset="5"
-       :polivariaveis=4
-        v-if="screens[5].item">
-      </padrao>
-
-      <padrao
-      @liberaexercicio="liberaTelas"
-      :libera_exercicio="6" 
-      title="Tabuada do três"
-      :primeira_variavel_numerica=3
-      :segundo_limite=5
-      :terceiro_limite=10
-      :first=40 
-      :second=50 
-      :third=60
-      :fourth=65
-      :fifth=75
-      signal='*'
-      call_reset="6"
-      :polivariaveis=3
-       v-if="screens[6].item">
-     </padrao>
-
-     <padrao
-     @liberaexercicio="liberaTelas"
-     :libera_exercicio="7" 
-     title="Tabuada do três Segunda parte"
-     :primeira_variavel_numerica=3
-     :segundo_limite=11
-     :terceiro_limite=6
-     :first=40 
-     :second=50 
-     :third=60
-     :fourth=65
-     :fifth=75
-     signal='*'
-     call_reset="7"
-     :polivariaveis=4
-      v-if="screens[7].item">
-    </padrao>
-
-    <padrao
-    @liberaexercicio="liberaTelas"
-    :libera_exercicio="8" 
-    title="Tabuada do trêS Completa"
-    :primeira_variavel_numerica=3
-    :segundo_limite=11
-    :terceiro_limite=0
-    :first=40 
-    :second=50 
-    :third=60
-    :fourth=65
-    :fifth=75
-    signal='*'
-    call_reset="8"
-    :polivariaveis=4
-     v-if="screens[8].item">
-   </padrao>
-
-   <padrao
-   @liberaexercicio="liberaTelas"
-   :libera_exercicio="9" 
-   title="Tabuada do quatro"
-   :primeira_variavel_numerica=4
-   :segundo_limite=5
-   :terceiro_limite=10
-   :first=40 
-   :second=50 
-   :third=60
-   :fourth=65
-   :fifth=75
-   signal='*'
-   call_reset="9"
-   :polivariaveis=3
-    v-if="screens[9].item">
-  </padrao>
-
+      
+         <div class="container_title" >          
+          <button v-for="item in MenuList" :key="item.id" :disabled="item.disabledButton" @click="changeScreen(item.eventClick)" :class="{avaiable: item.avaiableClass}" >{{item.titleButton}}</button>  
+         </div>          
+<div>
   <padrao
-  @liberaexercicio="liberaTelas"
-  :libera_exercicio="10" 
-  title="Tabuada do três Segunda parte"
-  :primeira_variavel_numerica=4
-  :segundo_limite=11
-  :terceiro_limite=6
-  :first=40 
-  :second=50 
-  :third=60
-  :fourth=65
-  :fifth=75
-  signal='*'
-  call_reset="10"
-  :polivariaveis=4
-   v-if="screens[10].item">
- </padrao>
+  @liberaexercicio="liberaTelas" 
+  :primeira_variavel_numerica=10 
+  :libera_exercicio="1" 
+  title= "Somar Unidades"
+  :first=25 
+  :second=30 
+  :third=35
+  :fourth=45
+  :fifth=50          
+  signal='+'
+  call_reset= 0
+  :polivariaveis=1      
+  v-if="MenuList[0].ScreenGameAble" 
+></padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"       
+:libera_exercicio="2" 
+title="Somar Dezenas"
+:primeira_variavel_numerica=40
+:first=40 
+:reset="2"
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='+'
+call_reset=1
+:polivariaveis=1
+v-if="MenuList[1].ScreenGameAble" 
+></padrao>
 
  <padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="3" 
+title="Subtrair"
+:primeira_variavel_numerica=9
+:segundo_limite=20
+:terceiro_limite=10
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='-'
+call_reset="2"
+:polivariaveis=2
+v-if="MenuList[2].ScreenGameAble">
+</padrao>  
+
+<padrao
  @liberaexercicio="liberaTelas"
- :libera_exercicio="11" 
- title="Tabuada do quatro Completa"
- :primeira_variavel_numerica=4
- :segundo_limite=11
- :terceiro_limite=0
+ :libera_exercicio="4" 
+ title="Tabuada do dois"
+ :primeira_variavel_numerica=2
+ :segundo_limite=5
+ :terceiro_limite=10
  :first=40 
  :second=50 
  :third=60
  :fourth=65
  :fifth=75
  signal='*'
- call_reset="11"
- :polivariaveis=4
-  v-if="screens[11].item">
+ call_reset="3"
+ :polivariaveis=3
+ v-if="MenuList[3].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="5" 
+title="Tabuada do dois Segunda parte"
+:primeira_variavel_numerica=2
+:segundo_limite=11
+:terceiro_limite=6
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="4"
+:polivariaveis=4
+v-if="MenuList[4].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="6" 
+title="Tabuada do dois Completa"
+:primeira_variavel_numerica=2
+:segundo_limite=11
+:terceiro_limite=0
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="5"
+:polivariaveis=4
+v-if="MenuList[5].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="7" 
+title="Tabuada do três"
+:primeira_variavel_numerica=3
+:segundo_limite=5
+:terceiro_limite=10
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="6"
+:polivariaveis=3
+v-if="MenuList[6].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="8" 
+title="Tabuada do três Segunda parte"
+:primeira_variavel_numerica=3
+:segundo_limite=11
+:terceiro_limite=6
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="7"
+:polivariaveis=4
+v-if="MenuList[7].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="9" 
+title="Tabuada do trêS Completa"
+:primeira_variavel_numerica=3
+:segundo_limite=11
+:terceiro_limite=0
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="8"
+:polivariaveis=4
+v-if="MenuList[8].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="10" 
+title="Tabuada do quatro"
+:primeira_variavel_numerica=4
+:segundo_limite=5
+:terceiro_limite=10
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="9"
+:polivariaveis=3
+v-if="MenuList[9].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="11" 
+title="Tabuada do quatro Segunda parte"
+:primeira_variavel_numerica=4
+:segundo_limite=11
+:terceiro_limite=6
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="10"
+:polivariaveis=4
+v-if="MenuList[10].ScreenGameAble">
+</padrao>
+
+<padrao
+@liberaexercicio="liberaTelas"
+:libera_exercicio="12" 
+title="Tabuada do quatro Completa"
+:primeira_variavel_numerica=4
+:segundo_limite=11
+:terceiro_limite=0
+:first=40 
+:second=50 
+:third=60
+:fourth=65
+:fifth=75
+signal='*'
+call_reset="11"
+:polivariaveis=4
+v-if="MenuList[11].ScreenGameAble">
 </padrao>
 
 <padrao
 @liberaexercicio="liberaTelas"       
-:libera_exercicio="12" 
+:libera_exercicio="13" 
 title="Somar Dezenas segunda parte"
 :primeira_variavel_numerica=90
 :first=55
@@ -260,8 +242,10 @@ title="Somar Dezenas segunda parte"
 signal='+'
 call_reset="12"
 :polivariaveis=1
-v-if="screens[12].item"
-></padrao>
+v-if="MenuList[12].ScreenGameAble">
+</padrao>
+</div>
+       
 </div>
       </div>
     </div>
@@ -278,6 +262,7 @@ v-if="screens[12].item"
         data: {
           nove:9,     
           MenuList:lux,  
+          avaiableClass:true,
           reset:0,
           ativo:false,
             boo:false,
@@ -305,10 +290,10 @@ v-if="screens[12].item"
             { item: false },
           ],
           avaiableScreens: [
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
+            { item: false },
+            { item: false },
+            { item: false },
+            { item: false },
             { item: true },
             { item: true },
             { item: true },
@@ -325,18 +310,19 @@ v-if="screens[12].item"
           ],
         },
         methods: {
-          liberaTelas(n) {                        
-            this.avaiableScreens[n].item = false;    
+          liberaTelas(n) {
+            this.MenuList[n].disabledButton = false;    
+            this.MenuList[n].avaiableClass = true ;    
            //localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
           },
          
-          changeScreen(a) {           
+          changeScreen(a) {                       
             let i = 0;
-            this.screens;
-            for (i = 0; i < this.screens.length; i++) {
-              this.screens[i].item = false;
-            }          
-            this.screens[a].item = true;          
+            this.avaiableClass;
+            for (i = 0; i < this.MenuList.length; i++) {
+              this.MenuList[i].ScreenGameAble = false;
+            }
+            this.MenuList[a].ScreenGameAble = true;          
            
           },
           // keepData(){

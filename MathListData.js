@@ -3,91 +3,104 @@ const buttonMenuTarget= [
     {
         id:0,
         eventClick:0,
-        avaiableClass:"avaiable",
-        disabledFunction:false,
-        titleButton:"Somas com unidades"
+        avaiableClass:true,
+        disabledButton:false,
+        titleButton:"Somas com unidades",
+        ScreenGameAble:false
     },
     {
         id:1,
-        eventClick:"changeScreen(1)",
-        avaiableClass:"{avaiable:!avaiableScreens[0].item}",
-        disabledFunction:"avaiableScreens[0].item",
-        titleButton:"Soma Dezenas"
+        eventClick:1,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Soma Dezenas",
+        ScreenGameAble:false
     },
     { 
         id:2,
-        eventClick:"changeScreen(2)",
-        avaiableClass:"{avaiable:!avaiableScreens[1].item}",
-        disabledFunction:"avaiableScreens[1].item",
-        titleButton:"Subtração"
+        eventClick:2,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Subtração",
+        ScreenGameAble:false
     },
     {
         id:3,
-        eventClick:"changeScreen(3)",
-        avaiableClass:"{avaiable:!avaiableScreens[2].item}",
-        disabledFunction:"avaiableScreens[2].item",
-        titleButton:"Tabuada 2 Primeira Parte"
+        eventClick:3,
+        avaiableClass:false,
+        disabledButton:true,        
+        titleButton:"Tabuada 2 Primeira Parte",
+        ScreenGameAble:false
     },
     {  
-        id:3,
-        eventClick:"changeScreen(4)",
-        avaiableClass:"{avaiable:!avaiableScreens[3].item}",
-        disabledFunction:"avaiableScreens[3].item",
-        titleButton:"Tabuada 2 Segunda Parte"
+        id:4,
+        eventClick:4,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 2 Segunda Parte",
+        ScreenGameAble:false
     },
      {
-         id:4,
-        eventClick:"changeScreen(5)",
-        avaiableClass:"{avaiable:!avaiableScreens[4].item}",
-        disabledFunction:"avaiableScreens[4].item",
-        titleButton:"Tabuada 2 Completa"
-    },
-    {
-        id:5,
-        eventClick:"changeScreen(6)",
-        avaiableClass:"{avaiable:!avaiableScreens[5].item}",
-        disabledFunction:"avaiableScreens[5].item",
-        titleButton:"abuada 3 Primeira Parte"
+         id:5,
+        eventClick:5,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 2 Completa",
+        ScreenGameAble:false
     },
     {
         id:6,
-        eventClick:"changeScreen(7)",
-        avaiableClass:"{avaiable:!avaiableScreens[6].item}",
-        disabledFunction:"avaiableScreens[6].item",
-        titleButton:"Tabuada 3 Segunda Parte"
+        eventClick:6,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 3 Primeira Parte",
+        ScreenGameAble:false
     },
     {
         id:7,
-        eventClick:"changeScreen(8)",
-        avaiableClass:"{avaiable:!avaiableScreens[7].item}",
-        disabledFunction:"avaiableScreens[7].item",
-        titleButton:"Tabuada 3 Completa<"
+        eventClick:7,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 3 Segunda Parte",
+        ScreenGameAble:false
     },
     {
         id:8,
-        eventClick:"changeScreen(9)",
-        avaiableClass:"{avaiable:!avaiableScreens[8].item}",
-        disabledFunction:"avaiableScreens[8].item",
-        titleButton:"Tabuada 4 Primeira Parte"
+        eventClick:8,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 3 Completa",
+        ScreenGameAble:false
     },
     {
         id:9,
-        eventClick:"changeScreen(10)",
-        avaiableClass:"{avaiable:!avaiableScreens[9].item}",
-        disabledFunction:"avaiableScreens[9].item",
-        titleButton:"Tabuada 4 Segunda Parte"
+        eventClick:9,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 4 Primeira Parte",
+        ScreenGameAble:false
     },
-    {   id:10,
-        eventClick:"changeScreen(11)",
-        avaiableClass:"{avaiable:!avaiableScreens[10].item}",
-        disabledFunction:"avaiableScreens[10].item",
-        titleButton:"Tabuada 4 Completa"
+    {
+        id:10, 
+        eventClick:10,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 4 Segunda Parte",
+        ScreenGameAble:false
     },
     {   id:11,
-        eventClick:"changeScreen(12)",
-        avaiableClass:"{avaiable:!avaiableScreens[11].item}",
-        disabledFunction:"avaiableScreens[11].item",
-        titleButton:"Soma com Dezenas Segunda parte"
+        eventClick:11,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 4 Completa",
+        ScreenGameAble:false
+    },
+    {   id:12,
+        eventClick:12,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Soma com Dezenas Segunda parte",
+        ScreenGameAble:false
     }
 ]
 export default buttonMenuTarget;
