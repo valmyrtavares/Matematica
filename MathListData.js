@@ -296,6 +296,53 @@ const buttonMenuTarget= [
             call_reset:"12",
             polivariaveis:1
         }
+    },
+    { 
+        id:13,
+        eventClick:13,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Subtração Segunda  parte",
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:14,
+            title:"Subtrair Segunda parte",
+            primeira_variavel_numerica:9,
+            segundo_limite:40,
+            terceiro_limite:20,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'-',
+            call_reset:"13",
+            polivariaveis:2
+        }
+    },
+    { 
+        id:14,
+        eventClick:14,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Subtração Terceira  parte",
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:15,
+            title:"Subtrair Terceira parte",
+            primeira_variavel_numerica:20,
+            segundo_limite:40,
+            terceiro_limite:25,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'-',
+            call_reset:"14",
+            polivariaveis:2
+        }
     }
+    
 ]
 export default buttonMenuTarget;

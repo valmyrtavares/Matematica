@@ -106,7 +106,7 @@
           liberaTelas(n) {
             this.MenuList[n].disabledButton = false;    
             this.MenuList[n].avaiableClass = true ;    
-           //localStorage.setItem("game", JSON.stringify(this.avaiableScreens))              
+           localStorage.setItem("game", JSON.stringify(this.MenuList))              
           },
          
           changeScreen(a) {                       
@@ -118,20 +118,19 @@
             this.MenuList[a].ScreenGameAble = true;          
            
           },
-          // keepData(){
-          //   if(localStorage.hasOwnProperty("game")){
-          //     this.avaiableScreens = JSON.parse(localStorage.getItem("game"))
-          //   }else{
-          //     for (let i = 0; i < this.screens.length; i++) {
-          //     this.avaiableScreens[i].item = false;
-          //   }    
-          //   }
-          // }
+          keepData(){
+            if(localStorage.hasOwnProperty("game")){
+              this.MenuList = JSON.parse(localStorage.getItem("game"))
+            }else{
+              for (let i = 0; i < this.screens.length; i++) {
+                this.MenuList[i].disabledButton = false;    
+                this.MenuList[i].avaiableClass = true ;    
+            }    
+            }
+          }
         },
-        created(){        
-        
-        //this.keepData()
-       
+        created(){
+          this.keepData()
         }
       });
     </script>
