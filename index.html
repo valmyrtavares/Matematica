@@ -121,16 +121,13 @@
           keepData(){
             if(localStorage.hasOwnProperty("game")){
               this.MenuList = JSON.parse(localStorage.getItem("game"))
-            }else{
-              for (let i = 0; i < this.screens.length; i++) {
-                this.MenuList[i].disabledButton = false;    
-                this.MenuList[i].avaiableClass = true ;    
-            }    
-            }
+            }            
           }
         },
-        created(){
-          this.keepData()
+        created(){       
+        
+        this.keepData()
+       
         }
       });
     </script>
