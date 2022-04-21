@@ -6,7 +6,22 @@ const buttonMenuTarget= [
         avaiableClass:true,
         disabledButton:false,
         titleButton:"Somas com unidades",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:1,
+            title:"Somar Unidades",
+            primeira_variavel_numerica:10,
+            segundo_limite:0,
+            terceiro_limite:0,
+            first:25,
+            second:30,
+            third:35,
+            fourth:45,
+            fifth:75,
+            signal:'+',
+            call_reset:"0",
+            polivariaveis:1
+        }
     },
     {
         id:1,
@@ -14,7 +29,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Soma Dezenas",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:2,
+            title:"Somar Dezenas",
+            primeira_variavel_numerica:40,
+            segundo_limite:0,
+            terceiro_limite:0,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'+',
+            call_reset:1,
+            polivariaveis:1
+        }
     },
     { 
         id:2,
@@ -22,7 +52,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Subtração",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:3,
+            title:"Subtrair",
+            primeira_variavel_numerica:9,
+            segundo_limite:20,
+            terceiro_limite:10,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'-',
+            call_reset:"2",
+            polivariaveis:2
+        }
     },
     {
         id:3,
@@ -30,7 +75,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,        
         titleButton:"Tabuada 2 Primeira Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:4,
+            title:"Tabuada do dois",
+            primeira_variavel_numerica:2,
+            segundo_limite:5,
+            terceiro_limite:10,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"3",
+            polivariaveis:3
+        }
     },
     {  
         id:4,
@@ -38,7 +98,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 2 Segunda Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:5,
+            title:"Tabuada do dois Segunda parte",
+            primeira_variavel_numerica:2,
+            segundo_limite:11,
+            terceiro_limite:6,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"4",
+            polivariaveis:4
+        }
     },
      {
          id:5,
@@ -46,7 +121,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 2 Completa",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:6,
+            title:"Tabuada 2 Completa",
+            primeira_variavel_numerica:2,
+            segundo_limite:11,
+            terceiro_limite:0,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"5",
+            polivariaveis:4
+        }
     },
     {
         id:6,
@@ -54,7 +144,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 3 Primeira Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:7,
+            title:"Tabuada 3 Primeira Parte",
+            primeira_variavel_numerica:3,
+            segundo_limite:5,
+            terceiro_limite:10,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"6",
+            polivariaveis:3
+        }
     },
     {
         id:7,
@@ -62,7 +167,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 3 Segunda Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:8,
+            title:"abuada 3 Segunda Parte",
+            primeira_variavel_numerica:3,
+            segundo_limite:11,
+            terceiro_limite:6,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"7",
+            polivariaveis:4
+        }
     },
     {
         id:8,
@@ -70,7 +190,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 3 Completa",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:9,
+            title:"Tabuada 3 Completa",
+            primeira_variavel_numerica:3,
+            segundo_limite:11,
+            terceiro_limite:0,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"8",
+            polivariaveis:4
+        }
     },
     {
         id:9,
@@ -78,7 +213,22 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 4 Primeira Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:10,
+            title:"Tabuada do quatro",
+            primeira_variavel_numerica:4,
+            segundo_limite:5,
+            terceiro_limite:10,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"9",
+            polivariaveis:3
+        }
     },
     {
         id:10, 
@@ -86,21 +236,66 @@ const buttonMenuTarget= [
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 4 Segunda Parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:11,
+            title:"STabuada 4 Segunda Parte",
+            primeira_variavel_numerica:4,
+            segundo_limite:11,
+            terceiro_limite:6,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"10",
+            polivariaveis:4
+        }
     },
     {   id:11,
         eventClick:11,
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Tabuada 4 Completa",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:12,
+            title:"Tabuada 4 Completa",
+            primeira_variavel_numerica:4,
+            segundo_limite:11,
+            terceiro_limite:0,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"11",
+            polivariaveis:4
+        }
     },
     {   id:12,
         eventClick:12,
         avaiableClass:false,
         disabledButton:true,
         titleButton:"Soma com Dezenas Segunda parte",
-        ScreenGameAble:false
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:13,
+            title:"Soma com Dezenas Segunda parte",
+            primeira_variavel_numerica:90,
+            segundo_limite:0,
+            terceiro_limite:0,
+            first:55,
+            second:65,
+            third:75,
+            fourth:90,
+            fifth:110,
+            signal:'+',
+            call_reset:"12",
+            polivariaveis:1
+        }
     }
 ]
 export default buttonMenuTarget;
