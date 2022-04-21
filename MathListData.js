@@ -342,7 +342,75 @@ const buttonMenuTarget= [
             call_reset:"14",
             polivariaveis:2
         }
-    }
+    },
+    {
+        id:15,
+        eventClick:15,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 5 Primeira Parte",
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:16,
+            title:"Tabuada do Cinco",
+            primeira_variavel_numerica:5,
+            segundo_limite:5,
+            terceiro_limite:10,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"15",
+            polivariaveis:3
+        }
+    },
+    {
+        id:16, 
+        eventClick:16,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 5 Segunda Parte",
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:17,
+            title:"Tabuada do 5 Segunda Parte",
+            primeira_variavel_numerica:5,
+            segundo_limite:11,
+            terceiro_limite:6,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"16",
+            polivariaveis:4
+        }
+    },
+    {   id:17,
+        eventClick:17,
+        avaiableClass:false,
+        disabledButton:true,
+        titleButton:"Tabuada 5 Completa",
+        ScreenGameAble:false,
+        ScreenSettings:{
+            libera_exercicio:18,
+            title:"Tabuada 5 Completa",
+            primeira_variavel_numerica:4,
+            segundo_limite:17,
+            terceiro_limite:0,
+            first:40,
+            second:50,
+            third:60,
+            fourth:65,
+            fifth:75,
+            signal:'*',
+            call_reset:"11",
+            polivariaveis:4
+        }
+    },
     
 ]
 export default buttonMenuTarget;
