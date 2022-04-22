@@ -10,124 +10,87 @@
   </head>
   <body>
     <div id="app">
-         <div class="container_title" >          
-          <button v-for="item in MenuList" :key="item.id" :disabled="item.disabledButton" @click="changeScreen(item.eventClick)" :class="{avaiable: item.avaiableClass}" >{{item.titleButton}}</button>  
-         </div>     
-         
-         <div>           
-          <padrao
-            v-for="item in MenuList"
-            :key="item.id"
-            @liberaexercicio="liberaTelas"
-            :libera_exercicio="item.ScreenSettings.libera_exercicio"
-             :title="item.ScreenSettings.title"
-            :primeira_variavel_numerica="item.ScreenSettings.primeira_variavel_numerica"
-            :segundo_limite="item.ScreenSettings.segundo_limite"
-            :terceiro_limite="item.ScreenSettings.terceiro_limite"
-            :first='item.ScreenSettings.first' 
-            :second="item.ScreenSettings.second" 
-            :third='item.ScreenSettings.third'
-            :fourth='item.ScreenSettings.fourth'
-            :fifth='item.ScreenSettings.fifth'
-            :signal='item.ScreenSettings.signal'
-            :call_reset="item.ScreenSettings.call_reset"
-            :polivariaveis='item.ScreenSettings.polivariaveis'
-            v-if="item.ScreenGameAble">
-          </padrao>  
-         </div>
-
-       
-</div>
+      <div class="container_title">
+        <button
+          v-for="item in MenuList"
+          :key="item.id"
+          :disabled="item.disabledButton"
+          @click="changeScreen(item.eventClick)"
+          :class="{avaiable: item.avaiableClass}"
+        >
+          {{item.titleButton}}
+        </button>
+      </div>
+      <div>
+        <padrao
+          v-for="item in MenuList"
+          :key="item.id"
+          @liberaexercicio="liberaTelas"
+          :libera_exercicio="item.ScreenSettings.libera_exercicio"
+          :title="item.ScreenSettings.title"
+          :primeira_variavel_numerica="item.ScreenSettings.primeira_variavel_numerica"
+          :segundo_limite="item.ScreenSettings.segundo_limite"
+          :terceiro_limite="item.ScreenSettings.terceiro_limite"
+          :first="item.ScreenSettings.first"
+          :second="item.ScreenSettings.second"
+          :third="item.ScreenSettings.third"
+          :fourth="item.ScreenSettings.fourth"
+          :fifth="item.ScreenSettings.fifth"
+          :signal="item.ScreenSettings.signal"
+          :call_reset="item.ScreenSettings.call_reset"
+          :number_exercices_repetition="item.ScreenSettings.numberOfExercicesRepetition"
+          :polivariaveis="item.ScreenSettings.polivariaveis"
+          v-if="item.ScreenGameAble"
+        >
+        </padrao>
       </div>
     </div>
 
     <script type="module">
-      import padrao from "./components/default.js";    
+      import padrao from "./components/default.js"
       import lux from "./MathListData.js"
 
       const vm = new Vue({
         el: "#app",
         components: {
-          padrao,          
+          padrao,
         },
         data: {
-          nove:9,     
-          MenuList:lux,  
-          avaiableClass:true,
-          reset:0,
-          ativo:false,
-            boo:false,
-            nome:"Valmyr Tavares",
+          nove: 9,
+          MenuList: lux,
+          avaiableClass: true,
+          reset: 0,
+          ativo: false,
+          boo: false,
+          nome: "Valmyr Tavares",
           somaUnidade: false,
           somaDezena: "",
           testeEmmit: "",
-          screens: [
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-          ],
-          avaiableScreens: [
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: false },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true },
-            { item: true }
-          ],
         },
         methods: {
           liberaTelas(n) {
-            this.MenuList[n].disabledButton = false;    
-            this.MenuList[n].avaiableClass = true ;    
-           localStorage.setItem("game", JSON.stringify(this.MenuList))              
+            this.MenuList[n].disabledButton = false
+            this.MenuList[n].avaiableClass = true
+            localStorage.setItem("game", JSON.stringify(this.MenuList))
           },
-         
-          changeScreen(a) {                       
-            let i = 0;
-            this.avaiableClass;
+          changeScreen(a) {
+            let i = 0
+            this.avaiableClass
             for (i = 0; i < this.MenuList.length; i++) {
-              this.MenuList[i].ScreenGameAble = false;
+              this.MenuList[i].ScreenGameAble = false
             }
-            this.MenuList[a].ScreenGameAble = true;          
-           
+            this.MenuList[a].ScreenGameAble = true
           },
-          keepData(){
-            if(localStorage.hasOwnProperty("game")){
+          keepData() {
+            if (localStorage.hasOwnProperty("game")) {
               this.MenuList = JSON.parse(localStorage.getItem("game"))
-            }            
-          }
+            }
+          },
         },
-        created(){       
-        
-        this.keepData()
-       
-        }
-      });
+        created() {
+          // this.keepData()
+        },
+      })
     </script>
   </body>
 </html>

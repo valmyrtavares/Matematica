@@ -7,7 +7,7 @@ const buttonMenuTarget= [
         disabledButton:false,
         titleButton:"Somas com unidades",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:1,
             title:"Somar Unidades",
             primeira_variavel_numerica:10,
@@ -19,6 +19,7 @@ const buttonMenuTarget= [
             fourth:45,
             fifth:75,
             signal:'+',
+            numberOfExercicesRepetition:10,
             call_reset:"0",
             polivariaveis:1
         }
@@ -30,7 +31,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Soma Dezenas",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:2,
             title:"Somar Dezenas",
             primeira_variavel_numerica:40,
@@ -42,6 +43,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'+',
+            numberOfExercicesRepetition:10,
             call_reset:1,
             polivariaveis:1
         }
@@ -53,7 +55,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Subtração",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:3,
             title:"Subtrair",
             primeira_variavel_numerica:9,
@@ -65,6 +67,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'-',
+            numberOfExercicesRepetition:10,
             call_reset:"2",
             polivariaveis:2
         }
@@ -76,7 +79,7 @@ const buttonMenuTarget= [
         disabledButton:true,        
         titleButton:"Tabuada 2 Primeira Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:4,
             title:"Tabuada do dois",
             primeira_variavel_numerica:2,
@@ -88,6 +91,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"3",
             polivariaveis:3
         }
@@ -99,7 +103,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 2 Segunda Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:5,
             title:"Tabuada do dois Segunda parte",
             primeira_variavel_numerica:2,
@@ -111,6 +115,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"4",
             polivariaveis:4
         }
@@ -122,7 +127,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 2 Completa",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:6,
             title:"Tabuada 2 Completa",
             primeira_variavel_numerica:2,
@@ -134,6 +139,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"5",
             polivariaveis:4
         }
@@ -145,7 +151,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 3 Primeira Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:7,
             title:"Tabuada 3 Primeira Parte",
             primeira_variavel_numerica:3,
@@ -157,6 +163,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"6",
             polivariaveis:3
         }
@@ -168,7 +175,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 3 Segunda Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:8,
             title:"abuada 3 Segunda Parte",
             primeira_variavel_numerica:3,
@@ -180,6 +187,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"7",
             polivariaveis:4
         }
@@ -191,7 +199,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 3 Completa",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:9,
             title:"Tabuada 3 Completa",
             primeira_variavel_numerica:3,
@@ -203,6 +211,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"8",
             polivariaveis:4
         }
@@ -214,7 +223,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 4 Primeira Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:10,
             title:"Tabuada do quatro",
             primeira_variavel_numerica:4,
@@ -226,6 +235,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"9",
             polivariaveis:3
         }
@@ -237,7 +247,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 4 Segunda Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:11,
             title:"STabuada 4 Segunda Parte",
             primeira_variavel_numerica:4,
@@ -249,6 +259,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"10",
             polivariaveis:4
         }
@@ -259,7 +270,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 4 Completa",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:12,
             title:"Tabuada 4 Completa",
             primeira_variavel_numerica:4,
@@ -271,6 +282,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"11",
             polivariaveis:4
         }
@@ -281,7 +293,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Soma com Dezenas Segunda parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:13,
             title:"Soma com Dezenas Segunda parte",
             primeira_variavel_numerica:90,
@@ -293,6 +305,7 @@ const buttonMenuTarget= [
             fourth:90,
             fifth:110,
             signal:'+',
+            numberOfExercicesRepetition:10,
             call_reset:"12",
             polivariaveis:1
         }
@@ -304,7 +317,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Subtração Segunda  parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:14,
             title:"Subtrair Segunda parte",
             primeira_variavel_numerica:9,
@@ -316,6 +329,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'-',
+            numberOfExercicesRepetition:10,
             call_reset:"13",
             polivariaveis:2
         }
@@ -327,7 +341,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Subtração Terceira  parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:15,
             title:"Subtrair Terceira parte",
             primeira_variavel_numerica:20,
@@ -339,6 +353,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'-',
+            numberOfExercicesRepetition:10,
             call_reset:"14",
             polivariaveis:2
         }
@@ -350,7 +365,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 5 Primeira Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:16,
             title:"Tabuada do Cinco",
             primeira_variavel_numerica:5,
@@ -362,6 +377,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"15",
             polivariaveis:3
         }
@@ -373,7 +389,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 5 Segunda Parte",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:17,
             title:"Tabuada do 5 Segunda Parte",
             primeira_variavel_numerica:5,
@@ -385,6 +401,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"16",
             polivariaveis:4
         }
@@ -395,7 +412,7 @@ const buttonMenuTarget= [
         disabledButton:true,
         titleButton:"Tabuada 5 Completa",
         ScreenGameAble:false,
-        ScreenSettings:{
+        ScreenSettings:{ 
             libera_exercicio:18,
             title:"Tabuada 5 Completa",
             primeira_variavel_numerica:4,
@@ -407,6 +424,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'*',
+            numberOfExercicesRepetition:10,
             call_reset:"11",
             polivariaveis:4
         }
