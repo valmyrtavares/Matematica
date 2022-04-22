@@ -10,16 +10,18 @@
   </head>
   <body>
     <div id="app">
-      <div class="container_title">
-        <button
-          v-for="item in MenuList"
-          :key="item.id"
-          :disabled="item.disabledButton"
-          @click="changeScreen(item.eventClick)"
-          :class="{avaiable: item.avaiableClass}"
-        >
-          {{item.titleButton}}
-        </button>
+      <div class="main_menu" :class="{menu_of: menuOof}">
+        <div class="container_title">
+          <button
+            v-for="item in MenuList"
+            :key="item.id"
+            :disabled="item.disabledButton"
+            @click="changeScreen(item.eventClick)"
+            :class="{avaiable: item.avaiableClass}"
+          >
+            {{item.titleButton}}
+          </button>
+        </div>
       </div>
       <div>
         <padrao
@@ -59,6 +61,7 @@
           nove: 9,
           MenuList: lux,
           avaiableClass: true,
+          menuOof: false,
           reset: 0,
           ativo: false,
           boo: false,
@@ -72,6 +75,7 @@
             this.MenuList[n].disabledButton = false
             this.MenuList[n].avaiableClass = true
             localStorage.setItem("game", JSON.stringify(this.MenuList))
+            this.menuOof = false
           },
           changeScreen(a) {
             let i = 0
@@ -80,6 +84,7 @@
               this.MenuList[i].ScreenGameAble = false
             }
             this.MenuList[a].ScreenGameAble = true
+            this.menuOof = true
           },
           keepData() {
             if (localStorage.hasOwnProperty("game")) {
