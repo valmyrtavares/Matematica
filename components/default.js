@@ -174,30 +174,31 @@ export default {
     },
 
     showAvaliation() {
+      debugger
       if (this.positive < 5) {
         this.evaluationMessaage = "Voce precisa voltar ao papel e caneta antes de tentar esse nível"
         this.closeMessage()
       }
-      if (this.avaliationScreem <= 3) {
+      if (this.avaliationScreem>=5 && this.avaliationScreem < 6) {
         this.evaluationMessaage = "Precisa praticar mais"
          this.closeMessage()
       }
-      if (this.avaliationScreem <= 5) {
+      if (this.avaliationScreem>=6 && this.avaliationScreem < 7) {
         this.evaluationMessaage= "Está quase acima da média"
         this.closeMessage()
       }
-      if (this.avaliationScreem <= 8) {
+      if (this.avaliationScreem>=7 && this.avaliationScreem < 8) {
         this.evaluationMessaage="Seu desempenho é regular"
         this.closeMessage()
 
       }
-      if (this.avaliationScreem <= 9) {
+      if (this.avaliationScreem>=8 && this.avaliationScreem < 9) {
         this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
         this.closeMessage()
 
         this.liberaProximosExercicios()
       }
-      if (this.avaliationScreem == 10) {
+      if (this.avaliationScreem > 9) {
         this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
         this.closeMessage()
          this.liberaProximosExercicios()
