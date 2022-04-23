@@ -2,7 +2,7 @@ export default {
   name: "MathSomaUnidade",
   //el:"#app",
   template: `  
-   <div class="main_content">
+   <div class="main_content">   
     <div class="frontButtonWrapper">
     <button @click="redefiningGameScreen">Recomeçar</button>
     <button @click="backToMainMenu">Menu de Exercícios</button>
@@ -20,7 +20,7 @@ export default {
             <button v-if="item.writtenRestult!==false" @click="ReadingResult(index)" style="color:green">{{ item.Label }}</button>
             <p v-if="item.writtenRestult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
-        <div class="result" v-if="count > 10">
+        <div class="result" v-if="count > number_exercices_repetition">
             <p class="evaluation_grade">Sua nota é <span>{{avaliationScreem}}</span></p>
             <p class="evaluation_description">{{evaluationMessaage}}</p>
             <p class="postive_notes"> Acertos {{positive}}</p> 
@@ -45,6 +45,7 @@ export default {
       avaliationScreem: 0,
       //mathSomaDezena: 0,
       liberaTela: 0,
+      minimumTime:{}
     }
   },
   props: [
@@ -141,7 +142,7 @@ export default {
       if (this.seg == 0) {
         this.countTime()
       }
-      if (this.count > 10) {
+      if (this.count > this.number_exercices_repetition) {
         clearInterval(this.finish)
         this.finalEvaluation()
       }
@@ -153,18 +154,19 @@ export default {
       }, 1000)
     },
     finalEvaluation() {
+      debugger
       let timeCurrent = 0
       let firstNote = this.positive * 0.5
 
-      if (this.seg < this.first) {
+      if (this.seg < this.minimumTime.firstLimit) {
         timeCurrent = 5
-      } else if (this.seg < this.second) {
+      } else if (this.seg < this.minimumTime.secondLimit) {
         timeCurrent = 4
-      } else if (this.seg < this.third) {
+      } else if (this.seg < this.minimumTime.thirdLimit) {
         timeCurrent = 3
-      } else if (this.seg < this.fourth) {
+      } else if (this.seg < this.minimumTime.fourthLimit) {
         timeCurrent = 2
-      } else if (this.seg < this.fifth) {
+      } else if (this.seg < this.minimumTime.fifthLimit) {
         timeCurrent = 1
       } else {
         timeCurrent = 0
@@ -174,34 +176,32 @@ export default {
     },
 
     showAvaliation() {
-      debugger
       if (this.positive < 5) {
         this.evaluationMessaage = "Voce precisa voltar ao papel e caneta antes de tentar esse nível"
         this.closeMessage()
       }
-      if (this.avaliationScreem>=5 && this.avaliationScreem < 6) {
-        this.evaluationMessaage = "Precisa praticar mais"
-         this.closeMessage()
-      }
-      if (this.avaliationScreem>=6 && this.avaliationScreem < 7) {
-        this.evaluationMessaage= "Está quase acima da média"
+      if (this.avaliationScreem >= 5 && this.avaliationScreem < 6) {
+        this.evaluationMessaage = "Precisa praticar mais. Recomece o exercício"
         this.closeMessage()
       }
-      if (this.avaliationScreem>=7 && this.avaliationScreem < 8) {
-        this.evaluationMessaage="Seu desempenho é regular"
+      if (this.avaliationScreem >= 6 && this.avaliationScreem < 7) {
+        this.evaluationMessaage = "Está quase acima da média treine os esse e os exercícios anteriores para melhorar clicando na aba de menu"
         this.closeMessage()
-
       }
-      if (this.avaliationScreem>=8 && this.avaliationScreem < 9) {
-        this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
+      if (this.avaliationScreem >= 7 && this.avaliationScreem < 8) {
+        this.evaluationMessaage = "Seu desempenho é regular clique em recomçar e treine um pouco mais"
+        this.closeMessage()
+      }
+      if (this.avaliationScreem >= 8 && this.avaliationScreem <= 9) {
+        this.evaluationMessaage = "Você foi muito bem já pode tentar um exercício mais difícil"
         this.closeMessage()
 
         this.liberaProximosExercicios()
       }
       if (this.avaliationScreem > 9) {
-        this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
+        this.evaluationMessaage = "Parabéns chegou na nota máxima, já pode tentar um exercício mais difícil"
         this.closeMessage()
-         this.liberaProximosExercicios()
+        this.liberaProximosExercicios()
       }
     },
 
@@ -235,6 +235,15 @@ export default {
       this.positive = 0
       this.negative = 0
     },
+    formatandoTemposAvaliacao(){
+      this.minimumTime.firstLimit = this.first;
+      this.minimumTime.secondLimit = this.first + 15
+      this.minimumTime.thirdLimit = this.first + 30
+      this.minimumTime.fourthLimit = this.first + 45
+      this.minimumTime.fifthLimit = this.first + 50
+      console.log(this.minimumTime)
+      return this.minimumTime
+    }
   },
 
   computed: {
@@ -248,11 +257,13 @@ export default {
   watch: {
     call_reset() {
       this.redefiningGameScreen()
+      this.formatandoTemposAvaliacao()
     },
   },
   mounted: function () {
     this.createNumberExercicesRepetition()
     this.redefiningGameScreen()
-    console.log(this.completeItem)
+    this.formatandoTemposAvaliacao()
+    
   },
 }

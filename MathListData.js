@@ -13,13 +13,13 @@ const buttonMenuTarget= [
             primeira_variavel_numerica:10,
             segundo_limite:0,
             terceiro_limite:0,
-            first:25,
+            first:70,
             second:30,
             third:35,
             fourth:45,
             fifth:75,
             signal:'+',
-            numberOfExercicesRepetition:10,
+            numberOfExercicesRepetition:20,
             call_reset:"0",
             polivariaveis:1
         }
@@ -43,7 +43,7 @@ const buttonMenuTarget= [
             fourth:65,
             fifth:75,
             signal:'+',
-            numberOfExercicesRepetition:10,
+            numberOfExercicesRepetition:20,
             call_reset:1,
             polivariaveis:1
         }

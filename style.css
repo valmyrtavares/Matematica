@@ -34,7 +34,7 @@
 .result {
   width: 80%;
     margin: 1px -4%;
-  position:absolute;
+  position:fixed;
   border: solid 4px red;
   padding:20px;
   background:rgb(196, 219, 66);
