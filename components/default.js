@@ -1,9 +1,14 @@
 export default {
   name: "MathSomaUnidade",
   //el:"#app",
-  template: `   <div class="main_content">
+  template: `  
+   <div class="main_content">
+    <div class="frontButtonWrapper">
     <button @click="redefiningGameScreen">Recomeçar</button>
+    <button @click="backToMainMenu">Menu de Exercícios</button>
+    </div>
         <h1 @click="liberaProximosExercicios">{{title}}</h1>   
+
         <div class="content" v-for="(item, index) in completeItem" :key="index">
             <div class="coeficientes">
                 <p>{{item.firstValue}}</p>
@@ -16,9 +21,10 @@ export default {
             <p v-if="item.writtenRestult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > 10">
-            <p>Acertos {{positive}}</p>
-            <p>Erros {{negative}}</p>
-            <p>Sua nota é {{avaliationScreem}} {{showAvaliation()}}</p>
+            <p class="evaluation_grade">Sua nota é <span>{{avaliationScreem}}</span></p>
+            <p class="evaluation_description">{{evaluationMessaage}}</p>
+            <p class="postive_notes"> Acertos {{positive}}</p> 
+            <p class="negative_notes"> Erros {{negative}}</p>
         </div> 
         <p class="tempo">Feito {{seg}} Segundos</p>      
         </div>`,
@@ -28,6 +34,7 @@ export default {
       completeItem: [],
       lux: 0,
       itemQuestion: "Eu quero uma string",
+      evaluationMessaage: "",
       positive: 0,
       negative: 0,
       //perpetou: this.reset,
@@ -36,7 +43,7 @@ export default {
       count: 1,
       seg: 0,
       avaliationScreem: 0,
-      mathSomaDezena: 0,
+      //mathSomaDezena: 0,
       liberaTela: 0,
     }
   },
@@ -55,14 +62,22 @@ export default {
     "signal",
     "polivariaveis",
     "call_reset",
-    "number_exercices_repetition"
+    "number_exercices_repetition",
   ],
   methods: {
-    numberExercicesRepetition() {
-      let indexWhile = 0      
+    createNumberExercicesRepetition() {
+      let indexWhile = 0
       while (indexWhile < this.number_exercices_repetition) {
-          indexWhile++
-        this.completeItem.push({firstValue:0, secondValue:0, result:0, writtenRestult:"", confirmClass:"",enabling:false, Label:"Enviar"})
+        indexWhile++
+        this.completeItem.push({
+          firstValue: 0,
+          secondValue: 0,
+          result: 0,
+          writtenRestult: "",
+          confirmClass: "",
+          enabling: false,
+          Label: "Enviar",
+        })
       }
     },
     showExerciceForEach() {
@@ -160,29 +175,48 @@ export default {
 
     showAvaliation() {
       if (this.positive < 5) {
-        return "Voce precisa voltar ao papel e caneta antes de tentar esse nível"
+        this.evaluationMessaage = "Voce precisa voltar ao papel e caneta antes de tentar esse nível"
+        this.closeMessage()
       }
       if (this.avaliationScreem <= 3) {
-        return "Precisa praticar mais"
+        this.evaluationMessaage = "Precisa praticar mais"
+         this.closeMessage()
       }
       if (this.avaliationScreem <= 5) {
-        return "Está quase acima da média"
+        this.evaluationMessaage= "Está quase acima da média"
+        this.closeMessage()
       }
-      if (this.avaliationScreem <= 7) {
-        return "Seu desempenho é regular"
+      if (this.avaliationScreem <= 8) {
+        this.evaluationMessaage="Seu desempenho é regular"
+        this.closeMessage()
+
       }
-      if (this.avaliationScreem >= 8) {
+      if (this.avaliationScreem <= 9) {
+        this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
+        this.closeMessage()
+
         this.liberaProximosExercicios()
-        return "Você já pode tentar um exercício mais difícil"
       }
-      if (this.avaliationScreem >= 9) {
-        this.liberaProximosExercicios()
-        return "Você já chegou ao ponto máximo desse nível"
+      if (this.avaliationScreem == 10) {
+        this.evaluationMessaage = "Você já pode tentar um exercício mais difícil"
+        this.closeMessage()
+         this.liberaProximosExercicios()
       }
     },
+
+    closeMessage() {
+      setTimeout(() => {
+        this.count = 0
+      }, 3000)
+      return
+    },
     liberaProximosExercicios() {
-      this.mathSomaDezena = true
+      // this.mathSomaDezena = true
       this.$emit("liberaexercicio", this.libera_exercicio)
+    },
+
+    backToMainMenu() {
+      this.$emit("backtomainmenu", false)
     },
 
     redefiningGameScreen() {
@@ -200,11 +234,8 @@ export default {
       this.positive = 0
       this.negative = 0
     },
-    testeWatch() {
-      debugger
-      console.log("teste")
-    },
   },
+
   computed: {
     res() {
       return this.itemQuestion ? "corectItem" : "incorectItem"
@@ -219,8 +250,8 @@ export default {
     },
   },
   mounted: function () {
-      this.numberExercicesRepetition()
-      this.redefiningGameScreen();
-      console.log(this.completeItem)
+    this.createNumberExercicesRepetition()
+    this.redefiningGameScreen()
+    console.log(this.completeItem)
   },
 }

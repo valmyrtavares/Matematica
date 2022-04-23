@@ -415,8 +415,8 @@ const buttonMenuTarget= [
         ScreenSettings:{ 
             libera_exercicio:18,
             title:"Tabuada 5 Completa",
-            primeira_variavel_numerica:4,
-            segundo_limite:17,
+            primeira_variavel_numerica:5,
+            segundo_limite:11,
             terceiro_limite:0,
             first:40,
             second:50,
@@ -425,7 +425,7 @@ const buttonMenuTarget= [
             fifth:75,
             signal:'*',
             numberOfExercicesRepetition:10,
-            call_reset:"11",
+            call_reset:"17",
             polivariaveis:4
         }
     },

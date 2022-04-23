@@ -28,6 +28,7 @@
           v-for="item in MenuList"
           :key="item.id"
           @liberaexercicio="liberaTelas"
+          @backtomainmenu="closeExercise"
           :libera_exercicio="item.ScreenSettings.libera_exercicio"
           :title="item.ScreenSettings.title"
           :primeira_variavel_numerica="item.ScreenSettings.primeira_variavel_numerica"
@@ -91,9 +92,12 @@
               this.MenuList = JSON.parse(localStorage.getItem("game"))
             }
           },
+          closeExercise(n) {
+            this.menuOof = n
+          },
         },
         created() {
-          // this.keepData()
+          this.keepData()
         },
       })
     </script>
