@@ -10,6 +10,11 @@
   </head>
   <body>
     <div id="app">
+      <!-- <div v-if="welcomeMessaage">
+        <p>Seja bem vindo {{userName}}</p>
+        <p>Clique abaixo e vamos começar essa incrível viagem pelo aprendizado autônomo de Matemática</p>
+        <button @click="{{welcomeMesage=false}}">Clique aqui</button>
+      </div> -->
       <div class="main_menu" :class="{menu_of: menuOof}">
         <div class="container_title">
           <button
@@ -61,6 +66,8 @@
         data: {
           nove: 9,
           MenuList: lux,
+          welcomeMesage: false,
+          userName: "",
           avaiableClass: true,
           menuOof: false,
           reset: 0,
@@ -95,10 +102,19 @@
           closeExercise(n) {
             this.menuOof = n
           },
+          // recognizingUser() {
+          //   this.userName = prompt(
+          //     "Entre como o nome que deseja ser tratado nesse nossa viagem pela o aprendizado de Matemática"
+          //   )
+          //   this.welcomeMesage = false
+          // },
         },
         created() {
           // this.keepData()
         },
+        // mounted() {
+        //   this.recognizingUser()
+        // },
       })
     </script>
   </body>

@@ -32,12 +32,13 @@
   margin: 0px 5px;
 }
 .result {
-  width: 80%;
-    margin: 1px -4%;
+  max-width: 60%;
+    margin: 1px 10%;
   position:fixed;
   border: solid 4px red;
   padding:20px;
   background:rgb(196, 219, 66);
+  z-index: 10;
   top:20%;
   left:10%;
   text-align: center;
