@@ -45,7 +45,7 @@ export default {
       avaliationScreem: 0,
       //mathSomaDezena: 0,
       liberaTela: 0,
-      minimumTime:{}
+      minimumTime: {},
     }
   },
   props: [
@@ -154,9 +154,8 @@ export default {
       }, 1000)
     },
     finalEvaluation() {
-      debugger
       let timeCurrent = 0
-      let firstNote = this.positive * 0.5
+      let firstNote = this.positive * (5 / this.number_exercices_repetition)
 
       if (this.seg < this.minimumTime.firstLimit) {
         timeCurrent = 5
@@ -185,7 +184,8 @@ export default {
         this.closeMessage()
       }
       if (this.avaliationScreem >= 6 && this.avaliationScreem < 7) {
-        this.evaluationMessaage = "Está quase acima da média treine os esse e os exercícios anteriores para melhorar clicando na aba de menu"
+        this.evaluationMessaage =
+          "Está quase acima da média treine os esse e os exercícios anteriores para melhorar clicando na aba de menu"
         this.closeMessage()
       }
       if (this.avaliationScreem >= 7 && this.avaliationScreem < 8) {
@@ -208,7 +208,7 @@ export default {
     closeMessage() {
       setTimeout(() => {
         this.count = 0
-      }, 3000)
+      }, 5000)
       return
     },
     liberaProximosExercicios() {
@@ -235,15 +235,15 @@ export default {
       this.positive = 0
       this.negative = 0
     },
-    formatandoTemposAvaliacao(){
-      this.minimumTime.firstLimit = this.first;
+    formatandoTemposAvaliacao() {
+      this.minimumTime.firstLimit = this.first
       this.minimumTime.secondLimit = this.first + 15
       this.minimumTime.thirdLimit = this.first + 30
       this.minimumTime.fourthLimit = this.first + 45
       this.minimumTime.fifthLimit = this.first + 50
       console.log(this.minimumTime)
       return this.minimumTime
-    }
+    },
   },
 
   computed: {
@@ -264,6 +264,5 @@ export default {
     this.createNumberExercicesRepetition()
     this.redefiningGameScreen()
     this.formatandoTemposAvaliacao()
-    
   },
 }
