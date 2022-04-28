@@ -9,12 +9,18 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">
-      <!-- <div v-if="welcomeMessaage">
-        <p>Seja bem vindo {{userName}}</p>
-        <p>Clique abaixo e vamos começar essa incrível viagem pelo aprendizado autônomo de Matemática</p>
-        <button @click="{{welcomeMesage=false}}">Clique aqui</button>
-      </div> -->
+    <div id="app">     
+      <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p>
+      <div v-if="namingScreen" class="naming_user">     
+          <label>Entre com o nome seu nome pequeno gafanhoto</label>
+          <input type="text" v-model="userName"/>      
+        <button @click="getUserName">Nomear</button>
+      </div>  
+      <div v-if="welcomeScreen" class="naming_user">     
+       <p>Seja bem vindo(a) {{userName}}</p>   
+       <p>Clique abaixo e vamos retomar de onde paramos</p>    
+      <button @click="closeWelcomeScreen">Atacar</button>
+    </div> 
       <div class="main_menu" :class="{menu_of: menuOof}">
         <div class="container_title">
           <button
@@ -34,16 +40,13 @@
           :key="item.id"
           @liberaexercicio="liberaTelas"
           @backtomainmenu="closeExercise"
+          :user_name="userName"
           :libera_exercicio="item.ScreenSettings.libera_exercicio"
           :title="item.ScreenSettings.title"
           :primeira_variavel_numerica="item.ScreenSettings.primeira_variavel_numerica"
           :segundo_limite="item.ScreenSettings.segundo_limite"
           :terceiro_limite="item.ScreenSettings.terceiro_limite"
-          :first="item.ScreenSettings.first"
-          :second="item.ScreenSettings.second"
-          :third="item.ScreenSettings.third"
-          :fourth="item.ScreenSettings.fourth"
-          :fifth="item.ScreenSettings.fifth"
+          :first="item.ScreenSettings.first"         
           :signal="item.ScreenSettings.signal"
           :call_reset="item.ScreenSettings.call_reset"
           :number_exercices_repetition="item.ScreenSettings.numberOfExercicesRepetition"
@@ -56,18 +59,20 @@
 
     <script type="module">
       import padrao from "./components/default.js"
-      import lux from "./MathListData.js"
+      import dataChallenger from "./MathListData.js"
 
       const vm = new Vue({
         el: "#app",
         components: {
           padrao,
         },
-        data: {
-          nove: 9,
-          MenuList: lux,
+        data: {        
+          MenuList: dataChallenger,
           welcomeMesage: false,
+          welcomeScreen:false,
           userName: "",
+          userNameScreen:false,
+          namingScreen:true,
           avaiableClass: true,
           menuOof: false,
           reset: 0,
@@ -102,15 +107,38 @@
           closeExercise(n) {
             this.menuOof = n
           },
-          // recognizingUser() {
-          //   this.userName = prompt(
-          //     "Entre como o nome que deseja ser tratado nesse nossa viagem pela o aprendizado de Matemática"
-          //   )
-          //   this.welcomeMesage = false
-          // },
+
+          checkUser(){
+            if (localStorage.hasOwnProperty("username")){
+              this.namingScreen=false
+              this.userName = JSON.parse(localStorage.getItem("username"))   
+              this.userNameScreen=true;
+            }else{
+              this.namingScreentrue=true;
+            }
+          },
+
+          getUserName(){
+            this.namingScreen=false
+            localStorage.setItem("username", JSON.stringify(this.userName))
+            this.namingScreen=false;
+            this.welcomeUser();
+          },
+           welcomeUser() {
+             if (localStorage.hasOwnProperty("username")) {
+               this.userName = JSON.parse(localStorage.getItem("username"))               
+            this.welcomeScreen = true
+            }
+          },
+          closeWelcomeScreen(){
+              this.welcomeScreen = false;
+              this.userNameScreen=true
+            },
+          
         },
         created() {
           this.keepData()
+          this.checkUser()
         },
         
       })

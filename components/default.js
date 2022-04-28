@@ -5,7 +5,7 @@ export default {
    <div class="main_content">   
     <div class="frontButtonWrapper">
     <button @click="redefiningGameScreen">Recomeçar</button>
-    <button @click="backToMainMenu">Menu de Exercícios</button>
+    <button @click="backToMainMenu">Menu de Exercícios</button>    
     </div>
         <h1 @click="liberaProximosExercicios">{{title}}</h1>   
 
@@ -21,6 +21,7 @@ export default {
             <p v-if="item.writtenRestult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > number_exercices_repetition">
+            <h1>{{user_name}}</h1>
             <p class="evaluation_grade">Sua nota é <span>{{avaliationScreem}}</span></p>
             <p class="evaluation_description">{{evaluationMessaage}}</p>
             <p class="postive_notes"> Acertos {{positive}}</p> 
@@ -55,14 +56,11 @@ export default {
     "libera_exercicio",
     "title",
     "reset",
-    "first",
-    "second",
-    "third",
-    "fourth",
-    "fifth",
+    "first",   
     "signal",
     "polivariaveis",
     "call_reset",
+    "user_name",
     "number_exercices_repetition",
   ],
   methods: {
@@ -81,6 +79,7 @@ export default {
         })
       }
     },
+
     showExerciceForEach() {
       if (this.polivariaveis === 1) {
         this.completeItem.map(item => {
@@ -113,6 +112,7 @@ export default {
         })
       }
     },
+
     verificaEval(value1, operation, value2) {
       let op = {
         "+": (x, y) => x + y,
@@ -122,6 +122,7 @@ export default {
       }
       return op[operation](value1, value2)
     },
+
     ReadingResult(index) {
       if (
         this.verificaEval(this.completeItem[index].firstValue, this.signal, this.completeItem[index].secondValue) ==
@@ -211,6 +212,7 @@ export default {
       }, 5000)
       return
     },
+
     liberaProximosExercicios() {
       // this.mathSomaDezena = true
       this.$emit("liberaexercicio", this.libera_exercicio)
@@ -235,6 +237,7 @@ export default {
       this.positive = 0
       this.negative = 0
     },
+    
     formatandoTemposAvaliacao() {
       this.minimumTime.firstLimit = this.first
       this.minimumTime.secondLimit = this.first + 15
