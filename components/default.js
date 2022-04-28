@@ -1,6 +1,5 @@
 export default {
   name: "MathSomaUnidade",
-  //el:"#app",
   template: `  
    <div class="main_content">   
     <div class="frontButtonWrapper">
@@ -16,7 +15,7 @@ export default {
                 <p>{{item.secondValue}}</p>
                 <p>=</p>
             </div>
-            <input  :disabled="item.enabling" class="" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenRestult"/>  
+            <input  :disabled="item.enabling" class="main_in" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenRestult"/>  
             <button v-if="item.writtenRestult!==false" @click="ReadingResult(index)" style="color:green">{{ item.Label }}</button>
             <p v-if="item.writtenRestult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
@@ -37,14 +36,12 @@ export default {
       itemQuestion: "Eu quero uma string",
       evaluationMessaage: "",
       positive: 0,
-      negative: 0,
-      //perpetou: this.reset,
+      negative: 0,     
       disable: false,
       partial_answer: "1243",
       count: 1,
       seg: 0,
-      avaliationScreem: 0,
-      //mathSomaDezena: 0,
+      avaliationScreem: 0,    
       liberaTela: 0,
       minimumTime: {},
     }

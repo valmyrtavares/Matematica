@@ -140,3 +140,6 @@ button {
   font-family: sans-serif;
   font-size:18px;
 }
+.main_in{
+  min-width:60px;
+}
