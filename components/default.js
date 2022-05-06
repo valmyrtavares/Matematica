@@ -108,13 +108,20 @@ export default {
           item.result = item.firstValue * item.secondValue
         })
       }
+      if (this.polivariaveis === 5) {
+        this.completeItem.map(item => {
+          item.firstValue = this.primeira_variavel_numerica
+          item.secondValue = item.firstValue *  Math.floor(Math.random() * (this.segundo_limite - this.terceiro_limite)) + this.terceiro_limite           
+          item.result = item.secondValue/ item.firstValue 
+        })
+      }
     },
 
     verificaEval(value1, operation, value2) {
       let op = {
         "+": (x, y) => x + y,
         "-": (x, y) => x - y,
-        "/": (x, y) => x / y,
+        "/": (x, y) => y / x,
         "*": (x, y) => x * y,
       }
       return op[operation](value1, value2)
@@ -210,8 +217,7 @@ export default {
       return
     },
 
-    liberaProximosExercicios() {
-      // this.mathSomaDezena = true
+    liberaProximosExercicios() {     
       this.$emit("liberaexercicio", this.libera_exercicio)
     },
 
