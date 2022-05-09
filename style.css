@@ -127,6 +127,7 @@ z-index: 1;
   width: 80%; 
   text-align: center;
   z-index: 10;
+  background-color: beige;
 }
 .naming_user h2{
   color:white;
