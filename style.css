@@ -100,7 +100,8 @@ button {
   display:flex;
   justify-content: space-between;
 }
-.naming_user{
+.naming_user{    
+  height: 100vh;
   font-family: sans-serif;
   padding:3%;
   display:flex;
@@ -111,26 +112,54 @@ button {
   z-index: 30;
   position:fixed;
   top:0;
-  left:0;
-  background:red;
+  left:0;  
   margin-bottom:5px;
 } 
-.naming_user label, input{
+.naming_user img{
+position: absolute;
+top:0;
+height: 100vh;
+z-index: 1;
+}
+
+.naming_user h2, input{
   font-size:20px;
   width: 80%; 
   text-align: center;
+  z-index: 10;
 }
-.naming_user label{
+.naming_user h2{
+  color:white;
+  margin:3px 10%;
+  font-weight: bold;
+  font-size: 30px; 
   margin-bottom:15px;
+  opacity: 1;
+  background: rgba(0,0,0, .3);
+  width: 165%;
+  padding: 15px;
 }
 .naming_user button{
   margin-top:15px;
   padding:10px 25px;
   border-radius: 5%;
   font-size:18px;
+  z-index: 10;
 }
 .naming_user input{
   height: 30px;
+}
+.naming_user p{
+  color:white;
+  font-weight: bold;
+  font-size: 25px; 
+  height: 18px;
+  z-index:10;
+  width: 150%;
+  text-align: center;
+}
+.naming_user p span{
+  color:red;
 }
 .welcome_user{
   position:absolute;
