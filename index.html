@@ -10,9 +10,9 @@
   </head>
   <body>
     <div id="app">     
-      <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p>
+      <!-- <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p> -->
       <div v-if="namingScreen" class="naming_user">   
-        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU" alt="">   -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU" alt="">  
           <h2>Entre com o nome seu nome pequeno gafanhoto</h2>
           <input type="text" v-model="userName"/>      
         <button @click="getUserName">Nomear</button>
@@ -22,7 +22,7 @@
        <p>Seja bem vindo(a) <span>{{userName}}</span> </p>   
        <p>Clique abaixo e vamos retomar de onde paramos</p>    
       <button @click="closeWelcomeScreen">Atacar</button>
-    </div> 
+    </div>   
       <div class="main_menu" :class="{menu_of: menuOof}">
         <div class="container_title">
           <button
@@ -53,20 +53,32 @@
           :call_reset="item.ScreenSettings.call_reset"
           :number_exercices_repetition="item.ScreenSettings.numberOfExercicesRepetition"
           :polivariaveis="item.ScreenSettings.polivariaveis"
-          v-if="item.ScreenGameAble"
+          v-if="item.ScreenGameAble && item.componentType==1"
         >
         </padrao>
+      
+          <exam-challenge
+          v-for="item in MenuList"
+          :key="item.id"
+          :firstMessage="item.firstMessage"
+          :secondMessage="item.secondMessage"
+          v-if="item.componentType===2"
+          ></exam-challenge>
+      
+      
       </div>
     </div>
 
     <script type="module">
       import padrao from "./components/default.js"
       import dataChallenger from "./MathListData.js"
+      import examChallenge from "./components/challenge.js"
 
       const vm = new Vue({
           el: "#app",
         components: {
           padrao,
+          examChallenge,
         },
         data: {        
           MenuList: dataChallenger,
@@ -89,12 +101,12 @@
             localStorage.setItem("game", JSON.stringify(this.MenuList))
             this.menuOof = false
           },
-          changeScreen(a) {
+          changeScreen(a) {            
             let i = 0
-            this.avaiableClass
+            //this.avaiableClass
             for (i = 0; i < this.MenuList.length; i++) {
               this.MenuList[i].ScreenGameAble = false
-            }
+            }           
             this.MenuList[a].ScreenGameAble = true
             this.menuOof = true
           },
@@ -137,7 +149,7 @@
         },
         created() {
           this.keepData()
-          this.checkUser()
+          this.checkUser()        
         },
         
       })

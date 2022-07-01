@@ -15,9 +15,9 @@ export default {
                 <p>{{item.secondValue}}</p>
                 <p>=</p>
             </div>
-            <input  :disabled="item.enabling" class="main_in" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenRestult"/>  
-            <button v-if="item.writtenRestult!==false" @click="ReadingResult(index)" style="color:green">{{ item.Label }}</button>
-            <p v-if="item.writtenRestult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
+            <input  :disabled="item.enabling" class="main_in" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenResult"/>  
+            <button v-if="item.writtenResult!==false" @click="ReadingResult(index)" style="color:green">{{ item.Label }}</button>
+            <p v-if="item.writtenResult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > number_exercices_repetition">
             <h1>{{user_name}}</h1>
@@ -69,7 +69,7 @@ export default {
           firstValue: 0,
           secondValue: 0,
           result: 0,
-          writtenRestult: "",
+          writtenResult: "",
           confirmClass: "",
           enabling: false,
           Label: "Enviar",
@@ -127,18 +127,18 @@ export default {
       return op[operation](value1, value2)
     },
 
-    ReadingResult(index) {
+    ReadingResult(index) {     
       if (
         this.verificaEval(this.completeItem[index].firstValue, this.signal, this.completeItem[index].secondValue) ==
-        parseInt(this.completeItem[index].writtenRestult)
+        parseInt(this.completeItem[index].writtenResult)
       ) {
         this.completeItem[index].confirmClass = "corectItem"
-        this.completeItem[index].writtenRestult = true
+        this.completeItem[index].writtenResult = true
         this.completeItem[index].Label = "Resposta Correta"
         this.positive++
       } else {
         this.completeItem[index].confirmClass = "incorectItem"
-        this.completeItem[index].writtenRestult = false
+        this.completeItem[index].writtenResult = false
         this.completeItem[index].Label = ""
         this.negative++
       }
@@ -229,10 +229,10 @@ export default {
       this.showExerciceForEach()
       for (let i = 0; i < this.completeItem.length; i++) {
         this.completeItem[i].confirmClass = ""
-        this.completeItem[i].writtenRestult = ""
+        this.completeItem[i].writtenResult = ""
         this.completeItem[i].enabling = false
         this.completeItem[i].Label = "Enviar"
-      }
+      }      
       this.avaliationScreem = ""
       clearInterval(this.finish)
       this.seg = 0
@@ -246,8 +246,7 @@ export default {
       this.minimumTime.secondLimit = this.first + 15
       this.minimumTime.thirdLimit = this.first + 30
       this.minimumTime.fourthLimit = this.first + 45
-      this.minimumTime.fifthLimit = this.first + 50
-      console.log(this.minimumTime)
+      this.minimumTime.fifthLimit = this.first + 50      
       return this.minimumTime
     },
   },
@@ -266,7 +265,7 @@ export default {
       this.formatandoTemposAvaliacao()
     },
   },
-  mounted: function () {
+  mounted: function () {   
     this.createNumberExercicesRepetition()
     this.redefiningGameScreen()
     this.formatandoTemposAvaliacao()

@@ -1,6 +1,7 @@
 const buttonMenuTarget = [
   {
     id: 0,
+componentType:1, //Qual o componente deve ser chamado
     eventClick: 0,
     avaiableClass: true,
     disabledButton: false,
@@ -22,7 +23,10 @@ const buttonMenuTarget = [
 
   {
     id: 1,
+    componentType:1,
     eventClick: 1,
+    firstMessage:"Parabéns você acertou o primeiro de dez níveis desse desafio, guarde na sua memória esse valor que acertou enquanto faz a próxima soma, ao final acrecente esse valor que guardou na sua  momória ao final da soma para passar para o próximo  nível",
+    secondMessage:"Parabéns faça o mesmo que o nível anterior memorize o resultado final e some ao final do primeiro nível",
     avaiableClass: false,
     disabledButton: true,
     titleButton: "Soma Dezenas",
@@ -40,8 +44,30 @@ const buttonMenuTarget = [
       polivariaveis: 1,
     },
   },
+  // {
+  //   id: 1,
+  //   componentType:1,
+  //   eventClick: 1,
+  //   avaiableClass: false,
+  //   disabledButton: true,
+  //   titleButton: "Soma Dezenas",
+  //   ScreenGameAble: false,
+  //   ScreenSettings: {
+  //     libera_exercicio: 2,
+  //     title: "Somar Dezenas",
+  //     primeira_variavel_numerica: 40,
+  //     segundo_limite: 0,
+  //     terceiro_limite: 0,
+  //     first: 110,      
+  //     signal: "+",
+  //     numberOfExercicesRepetition: 20,
+  //     call_reset: 1,
+  //     polivariaveis: 1,
+  //   },
+  // },
   {
     id: 2,
+    componentType:1,
     eventClick: 2,
     avaiableClass: false,
     disabledButton: true,
@@ -62,7 +88,8 @@ const buttonMenuTarget = [
   },
   {
     id: 3,
-    eventClick: 3,
+    componentType:1,
+   eventClick: 3,
     avaiableClass: false,
     disabledButton: true,
     titleButton: "Tabuada 2 Primeira Parte",
@@ -82,6 +109,7 @@ const buttonMenuTarget = [
   },
   {
     id: 4,
+    componentType:1,
     eventClick: 4,
     avaiableClass: false,
     disabledButton: true,
@@ -102,7 +130,8 @@ const buttonMenuTarget = [
   },
   {
     id: 5,
-    eventClick: 5,
+    componentType:1, 
+   eventClick: 5,
     avaiableClass: false,
     disabledButton: true,
     titleButton: "Tabuada 2 Completa",
@@ -122,6 +151,7 @@ const buttonMenuTarget = [
   },
   {
     id: 6,
+    componentType:1,
     eventClick: 6,
     avaiableClass: false,
     disabledButton: true,
@@ -142,6 +172,7 @@ const buttonMenuTarget = [
   },
   {
     id: 7,
+    componentType:1,
     eventClick: 7,
     avaiableClass: false,
     disabledButton: true,
@@ -162,6 +193,7 @@ const buttonMenuTarget = [
   },
   {
     id: 8,
+    componentType:1,
     eventClick: 8,
     avaiableClass: false,
     disabledButton: true,
@@ -181,7 +213,7 @@ const buttonMenuTarget = [
     },
   },
   {
-    id: 9,
+    id: 9,componentType:1,
     eventClick: 9,
     avaiableClass: false,
     disabledButton: true,
@@ -202,6 +234,7 @@ const buttonMenuTarget = [
   },
   {
     id: 10,
+    componentType:1,
     eventClick: 10,
     avaiableClass: false,
     disabledButton: true,
@@ -222,6 +255,7 @@ const buttonMenuTarget = [
   },
   {
     id: 11,
+    componentType:1,
     eventClick: 11,
     avaiableClass: false,
     disabledButton: true,
@@ -242,6 +276,7 @@ const buttonMenuTarget = [
   },
   {
     id: 12,
+    componentType:1,
     eventClick: 12,
     avaiableClass: false,
     disabledButton: true,
@@ -262,6 +297,7 @@ const buttonMenuTarget = [
   },
   {
     id: 13,
+    componentType:1,
     eventClick: 13,
     avaiableClass: false,
     disabledButton: true,
@@ -282,6 +318,7 @@ const buttonMenuTarget = [
   },
   {
     id: 14,
+    componentType:1,
     eventClick: 14,
     avaiableClass: false,
     disabledButton: true,
@@ -302,6 +339,7 @@ const buttonMenuTarget = [
   },
   {
     id: 15,
+    componentType:1,
     eventClick: 15,
     avaiableClass: false,
     disabledButton: true,
@@ -322,6 +360,7 @@ const buttonMenuTarget = [
   },
   {
     id: 16,
+    componentType:1,
     eventClick: 16,
     avaiableClass: false,
     disabledButton: true,
@@ -342,6 +381,7 @@ const buttonMenuTarget = [
   },
   {
     id: 17,
+    componentType:1,
     eventClick: 17,
     avaiableClass: false,
     disabledButton: true,
@@ -362,6 +402,7 @@ const buttonMenuTarget = [
   },
   {
     id: 18,
+    componentType:1,
     eventClick: 18,
     avaiableClass: false,
     disabledButton: true,
@@ -382,6 +423,7 @@ const buttonMenuTarget = [
   },
   {
     id: 19,
+    componentType:1,
     eventClick: 19,
     avaiableClass: false,
     disabledButton: true,
@@ -402,6 +444,7 @@ const buttonMenuTarget = [
   },
   {
     id: 20,
+    componentType:1,
     eventClick: 20,
     avaiableClass: false,
     disabledButton: true,
@@ -422,6 +465,7 @@ const buttonMenuTarget = [
   },
   {
     id: 21,
+    componentType:1,
     eventClick: 21,
     avaiableClass: false,
     disabledButton: true,
@@ -442,6 +486,7 @@ const buttonMenuTarget = [
   },
   {
     id: 22,
+    componentType:1,
     eventClick: 22,
     avaiableClass: false,
     disabledButton: true,
@@ -462,6 +507,7 @@ const buttonMenuTarget = [
   },
   {
     id: 23,
+    componentType:1,
     eventClick: 23,
     avaiableClass: false,
     disabledButton: true,
@@ -483,6 +529,7 @@ const buttonMenuTarget = [
 
   {
     id: 24,
+    componentType:1,
     eventClick: 24,
     avaiableClass: false,
     disabledButton: true,
@@ -503,6 +550,7 @@ const buttonMenuTarget = [
   },
   {
     id: 25,
+    componentType:1,
     eventClick: 25,
     avaiableClass: false,
     disabledButton: true,
@@ -523,6 +571,7 @@ const buttonMenuTarget = [
   },
   {
     id: 26,
+    componentType:1,
     eventClick: 26,
     avaiableClass: false,
     disabledButton: true,
@@ -543,6 +592,7 @@ const buttonMenuTarget = [
   },
   {
     id: 27,
+    componentType:1,
     eventClick: 27,
     avaiableClass: false,
     disabledButton: true,
@@ -563,6 +613,7 @@ const buttonMenuTarget = [
   },
   {
     id: 28,
+    componentType:1,
     eventClick: 28,
     avaiableClass: false,
     disabledButton: true,
@@ -583,6 +634,7 @@ const buttonMenuTarget = [
   },
   {
     id: 29,
+    componentType:1,
     eventClick: 29,
     avaiableClass: false,
     disabledButton: true,
@@ -603,6 +655,7 @@ const buttonMenuTarget = [
   },
   {
     id: 30,
+    componentType:1,
     eventClick: 30,
     avaiableClass: false,
     disabledButton: true,
@@ -623,6 +676,7 @@ const buttonMenuTarget = [
   },
   {
     id: 31,
+    componentType:1,
     eventClick: 31,
     avaiableClass: false,
     disabledButton: true,
@@ -643,6 +697,7 @@ const buttonMenuTarget = [
   },
   {
     id: 32,
+    componentType:1,
     eventClick: 32,
     avaiableClass: false,
     disabledButton: true,
@@ -663,6 +718,7 @@ const buttonMenuTarget = [
   },
   {
     id: 33,
+    componentType:1,
     eventClick: 33,
     avaiableClass: false,
     disabledButton: true,
@@ -683,6 +739,7 @@ const buttonMenuTarget = [
   },
   {
     id: 34,
+    componentType:1,
     eventClick: 34,
     avaiableClass: false,
     disabledButton: true,
@@ -703,6 +760,7 @@ const buttonMenuTarget = [
   },
   {
     id: 35,
+    componentType:1,
     eventClick: 35,
     avaiableClass: false,
     disabledButton: true,
