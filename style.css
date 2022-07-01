@@ -196,3 +196,19 @@ height: 100vh;
   padding:4px;
   margin-bottom: 30px;
 }
+[data-menu="button"] {
+  display:flex;
+  background:#222;
+  color:#fff;
+  padding: .5rem 1rem;
+  align-items:center;
+}
+[data-menu="button"]::before{        
+  content:'';
+  width:12px;
+  height: 2px;
+  display: inline-block;
+  background:#fff;
+  margin-right:4px;
+  box-shadow: 0 4px #fff,0 -4px #fff;
+}
