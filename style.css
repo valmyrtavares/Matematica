@@ -107,14 +107,18 @@ button {
   display:flex;
   flex-direction: column;
   align-items: center;
-  width:60%;
-  margin:3px 20%;
+  /* width:100%;
+  height: 100%;
+  margin:3px 20%; */
   z-index: 30;
   position:fixed;
   top:0;
   left:0;  
   margin-bottom:5px;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU");
+  /* background-repeat: no-repeat; */
+  background-position: center center;
+  background-attachment: fixed;
 } 
 .naming_user img{
 position: relative;
