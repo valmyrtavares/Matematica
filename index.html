@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="app">     
-      <button >Desafios</button>
+      <button @click="showChallengeScreen(true)" data-menu="button"></button>
       <!-- <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p> -->
       <div v-if="namingScreen" class="naming_user">   
         <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU" alt="">   -->
@@ -56,23 +56,22 @@
           :polivariaveis="item.ScreenSettings.polivariaveis"
           v-if="item.ScreenGameAble"
         >
-        </padrao>
-      
+        </padrao>     
           <exam-challenge
-          v-for="item in MenuList"
-          :key="item.id"
-          :firstMessage="item.firstMessage"
-          :secondMessage="item.secondMessage"
-          v-if="item.componentType===2"
+          v-for="item in newChallenge"
+          v-if="challengeScreen" 
+          :first_message="item.firstMessage"   
+          :mensagem_inicial="item.mensagemInicial"
+          :second_message ="item.secondMessage"     
+          @closechallenge="showChallengeScreen"
           ></exam-challenge>
-      
-      
       </div>
     </div>
 
     <script type="module">
       import padrao from "./components/default.js"
-      import dataChallenger from "./MathListData.js"
+      import {buttonMenuTarget, dataModuleChallenge} from "./MathListData.js"
+    
       import examChallenge from "./components/challenge.js"
 
       const vm = new Vue({
@@ -82,7 +81,8 @@
           examChallenge,
         },
         data: {        
-          MenuList: dataChallenger,
+          MenuList: buttonMenuTarget,
+          newChallenge:dataModuleChallenge,
           welcomeMesage: false,
           welcomeScreen:false,
           userName: "",
@@ -93,9 +93,14 @@
           reset: 0,
           ativo: false,
           somaUnidade: false,
-          somaDezena: "",         
+          somaDezena: "",      
+          challengeScreen:false,
+          testandoProps:"testandoProps"   
         },
         methods: {
+          showChallengeScreen(n){          
+            this.challengeScreen = n;           
+          },
           liberaTelas(n) {           
             this.MenuList[n].disabledButton = false
             this.MenuList[n].avaiableClass = true          
@@ -150,7 +155,8 @@
         },
         created() {
           this.keepData()
-          this.checkUser()        
+          this.checkUser()    
+          console.log(this.newChallenge)    
         },
         
       })

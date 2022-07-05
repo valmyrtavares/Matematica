@@ -723,5 +723,14 @@ const buttonMenuTarget = [
     },
   },
 ]
-export default buttonMenuTarget
+
+const dataModuleChallenge = [
+  {
+    id:0,
+    mensagemInicial:"Você tem 30 segundos para somar 10 números menores que 10 e digitar o valor no input que está ao final da soma e clicar em Enviar",
+    firstMessage: "Muito bem conseguiu o primeiro passo, guarde o resultado atual porque ele será requerido ao final da proxima soma, para que possa seguir para o próximo passo",
+    secondMessage:"Muito bem, matenha seu último restultado em mente enquanto faz o seu novo calculo e ao final some com o seu últmio restuldao. Fique firme por 10 estágios"
+  }
+]
+export { buttonMenuTarget, dataModuleChallenge}
 
