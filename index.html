@@ -9,8 +9,11 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">     
-      <button @click="showChallengeScreen(true)" data-menu="button"></button>
+    <div id="app">          
+      <div v-if="this.avaiableChallenge">        
+        <button @click="showChallengeScreen(true)" data-menu="button" ><span class="btn_msg_challenge" v-if="this.msgBtnChallenge">Você tem um desafio a sua espera clique no botão </span></button>
+      </div>
+
       <!-- <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p> -->
       <div v-if="namingScreen" class="naming_user">   
         <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU" alt="">   -->
@@ -95,31 +98,47 @@
           somaUnidade: false,
           somaDezena: "",      
           challengeScreen:false,
-          testandoProps:"testandoProps"   
+          avaiableChallenge:false,
+          msgBtnChallenge:true,
+          testandoProps:"testandoProps",  
+          teste:0 
         },
         methods: {
           showChallengeScreen(n){          
             this.challengeScreen = n;           
           },
-          liberaTelas(n) {           
+          liberaTelas(n) {
             this.MenuList[n].disabledButton = false
-            this.MenuList[n].avaiableClass = true          
+            this.MenuList[n].avaiableClass = true 
             localStorage.setItem("game", JSON.stringify(this.MenuList))
             this.menuOof = false
+            this.teste = n
+            if(n>13){
+              this.avaiableChallenge=true
+              localStorage.setItem("challenge", JSON.stringify(this.avaiableChallenge))
+              setTimeout(()=>{
+                this.msgBtnChallenge=false
+
+              },10000)
+            }
           },
           changeScreen(a) {            
-            let i = 0
-            //this.avaiableClass
+            let i = 0          
             for (i = 0; i < this.MenuList.length; i++) {
               this.MenuList[i].ScreenGameAble = false
             }           
             this.MenuList[a].ScreenGameAble = true
             this.menuOof = true
           },
-          keepData() {
+          keepData() {            
             if (localStorage.hasOwnProperty("game")) {
               this.MenuList = JSON.parse(localStorage.getItem("game"))
             }
+            if (localStorage.hasOwnProperty("challenge")) {
+              this.avaiableChallenge = JSON.parse(localStorage.getItem("challenge"))
+            }
+            this.msgBtnChallenge=false
+
           },
           closeExercise(n) {
             this.menuOof = n

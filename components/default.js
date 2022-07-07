@@ -1,7 +1,7 @@
 export default {
   name: "MathSomaUnidade",
   template: `  
-   <div class="main_content">   
+   <div class="main_content">      
     <div class="frontButtonWrapper">
     <button @click="redefiningGameScreen">Recomeçar</button>
     <button @click="backToMainMenu">Menu de Exercícios</button>    

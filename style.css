@@ -208,9 +208,15 @@ height: 100vh;
   width:20px;
   height: 2px;
   display: inline-block;
-  background:black;
+  background:rgb(56, 153, 56);
   margin-right:4px;
-  box-shadow: 0 6px black,0 -6px black;
+  box-shadow: 0 6px rgb(56, 153, 56),0 -6px rgb(56, 153, 56);
+}
+.btn_msg_challenge{
+  margin-left:5px;
+  border:solid 1px rgb(56, 153, 56);
+  padding: 5px;
+  color:rgb(56, 153, 56);
 }
 .challenge_container{
   position: absolute;
