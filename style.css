@@ -118,7 +118,9 @@ button {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU");
   /* background-repeat: no-repeat; */
   background-position: center center;
+  background-size: 100vh 100vw;
   background-attachment: fixed;
+  background-repeat: no-repeat
 } 
 .naming_user img{
 position: relative;
