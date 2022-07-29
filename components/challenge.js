@@ -2,6 +2,7 @@ export default {
   name: "challenge",
   template: `
   <div class="challenge_container">
+  <button @click="winChallenge">Desenv</button>
   <button @click="CloseChallenge">Fecha o Menu"</button>
     <h1>Bem vindo ao desafio</h1>  
     <h2 class=timeCurrent>{{seg}} Segundos</h2>
@@ -11,7 +12,7 @@ export default {
     <p>{{estagio}}</p>
     <div class="sum_sequence" >
      {{showSum}} <input type="number" v-model="written"/>
-     <button @click=showResult>Enviar</button>    
+     <button :disabled="disabledBtn" @click=showResult>Enviar</button>    
     </div>
     <div v-if="guideMessage">
       <p >{{guideMessage}}</p> 
@@ -29,7 +30,8 @@ export default {
       numbersList:[],
       showSum:"",
       result:0,
-      written:0,
+      written:"",
+      disabledBtn:false,
       nivel:0,
       guideMessage:"",
       guideErrorMessage:"",
@@ -41,7 +43,15 @@ export default {
   props:[
     "first_message",
     "second_message",
-    "mensagem_inicial"
+    "third_message",
+    "fourth_message",
+    "fifth_message",
+    "sixth_message",
+    "seventh_message",
+    "eighth_message",
+    "nineth_message",    
+    "mensagem_inicial",
+    "tenth_message"
   ],
   watch:{
     seg(){
@@ -58,6 +68,11 @@ export default {
     }
   },
   methods:{
+    winChallenge(){
+    this.written = this.result
+    this.lastResult = this.result
+    this.showResult();
+    },
     countTime() {
       this.finish = setInterval(() => {
         this.seg++
@@ -67,15 +82,22 @@ export default {
       this.$emit("closechallenge", false)
     },
     upNewLevel(){
-      this.guideMessage="";
-      this.guideErrorMessage="";
-      this.numbersList=[];
-      this.showSum="";
-      this.written="";
-      this.mensagem_inicial=""
-      this.createAddNumbers()
+      if(this.nivel<10){
+        this.guideMessage="";
+        this.guideErrorMessage="";
+        this.numbersList=[];
+        this.disabledBtn=false
+        this.showSum="";
+        this.written="";
+        this.mensagem_inicial=""
+        this.createAddNumbers()
+      }else{
+        this.CloseChallenge()
+      }
+
     },
     createAddNumbers(){      
+      this.disabledBtn=false;
       this.guideMessage="";
       this.guideErrorMessage="";
       let indexWhile = 0
@@ -113,9 +135,8 @@ export default {
           this.result+=lastResult
         }  
     },
-       
-    showResult(){     
-      
+    showResult(){    
+      this.disabledBtn=true;
       if(this.result==this.written){                      
         this.nivel++
         clearInterval(this.finish)
@@ -131,35 +152,35 @@ export default {
             this.estagio = "Segundo estágio";
             break;
           case 3:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.third_message;  
             this.estagio = "Terceiro estágio";
             break;
           case 4:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.fourth_message;  
             this.estagio = "Quarto estágio";
             break;
           case 5:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.fifth_message;  
             this.estagio = "Quinto estágio";
             break;
           case 6:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.sixth_message;  
             this.estagio = "Sexto estágio";
             break;
           case 7:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.seventh_message;  
             this.estagio = "Sétimo estágio";
             break;
           case 8:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.eighth_message;  
             this.estagio = "Oitavo estágio";
             break;
           case 9:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.nineth_message;  
             this.estagio = "Nono estágio";
             break;
           case 10:
-            this.guideMessage = this.second_message;  
+            this.guideMessage = this.tenth_message;  
             this.estagio = "Décimo estágio";
             break;
         }

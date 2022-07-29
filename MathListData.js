@@ -728,8 +728,16 @@ const dataModuleChallenge = [
   {
     id:0,
     mensagemInicial:"Você tem 30 segundos para somar 10 números menores que 10 e digitar o valor no input que está ao final da soma e clicar em Enviar",
-    firstMessage: "Muito bem conseguiu o primeiro passo, guarde o resultado atual porque ele será requerido ao final da proxima soma, para que possa seguir para o próximo passo",
-    secondMessage:"Muito bem, matenha seu último restultado em mente enquanto faz o seu novo calculo e ao final some com o seu últmio restuldao. Fique firme por 10 estágios"
+    firstMessage: "Muito bem conseguiu o primeiro passo, guarde o resultado atual porque ele será requerido ao final da proxima soma, para que possa seguir para o próximo estágio",
+    secondMessage:"Muito bem vc está no segundo estágio  concentre-se",
+    thirdMessage:"Muito bem vc está no terceiro estágio  concentre-se",
+    fourthMessage:"Muito bem vc está no quarto estágio  concentre-se",
+    fifthMessage:"Muito bem vc está no quinto estágio  concentre-se",
+    sixthMessage:"Muito bem vc está no sexto estágio  concentre-se",
+    seventhMessage:"Muito bem vc está no sétimo estágio  concentre-se",
+    eighthMessage:"Muito bem vc está no oitavo estágio  concentre-se",
+    ninethMessage:"Muito bem vc está no nono estágio concentre-se",
+    tenth_message: "Parabéns vc conseguiu vencer o desafio, suas habilidades estão crescendo e isso deve facilitar muito outros raciocínios "
   }
 ]
 export { buttonMenuTarget, dataModuleChallenge}

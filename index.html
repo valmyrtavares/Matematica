@@ -60,14 +60,22 @@
           v-if="item.ScreenGameAble"
         >
         </padrao>     
-          <exam-challenge
+        <exam-challenge
           v-for="item in newChallenge"
           v-if="challengeScreen" 
           :first_message="item.firstMessage"   
           :mensagem_inicial="item.mensagemInicial"
-          :second_message ="item.secondMessage"     
+          :second_message ="item.secondMessage" 
+          :third_message = "item.thirdMessage"
+          :fourth_message = "item.fourthMessage" 
+          :fifth_message = "item.fifthMessage"
+          :sixth_message = "item.sixthMessage"
+          :seventh_message = "item.seventhMessage" 
+          :eighth_message = "item.eighthMessage"
+          :nineth_message = "item.ninethMessage" 
+          :tenth_message = "item.tenth_message" 
           @closechallenge="showChallengeScreen"
-          ></exam-challenge>
+        ></exam-challenge>
       </div>
     </div>
 
@@ -113,13 +121,14 @@
             localStorage.setItem("game", JSON.stringify(this.MenuList))
             this.menuOof = false
             this.teste = n
-            if(n>13){
+            //REGRA DO DESAFIO
+            if(n>2){
               this.avaiableChallenge=true
               localStorage.setItem("challenge", JSON.stringify(this.avaiableChallenge))
               setTimeout(()=>{
                 this.msgBtnChallenge=false
 
-              },10000)
+              },20000)
             }
           },
           changeScreen(a) {            
@@ -169,13 +178,12 @@
           closeWelcomeScreen(){
               this.welcomeScreen = false;
               this.userNameScreen=true
-            },
+          },
           
         },
         created() {
           this.keepData()
-          this.checkUser()    
-          console.log(this.newChallenge)    
+          this.checkUser()                 
         },
         
       })
