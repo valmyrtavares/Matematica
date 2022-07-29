@@ -61,6 +61,12 @@
     width: 80%;
     margin: 1px auto;
 }
+.result button{
+  background:none;
+  color:black;
+  font-size: 30px;
+  float:right;
+}
 .tempo {
   text-align: center;
 }

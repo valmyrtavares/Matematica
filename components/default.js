@@ -20,6 +20,7 @@ export default {
             <p v-if="item.writtenResult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > number_exercices_repetition">
+        <button @click="handleCloseModal">X</button>
             <h1>{{user_name}}</h1>
             <p class="evaluation_grade">Sua nota é <span>{{avaliationScreem}}</span></p>
             <p class="evaluation_description">{{evaluationMessaage}}</p>
@@ -162,6 +163,7 @@ export default {
     },
     finalEvaluation() {
       let timeCurrent = 0
+      
       let firstNote = this.positive * (5 / this.number_exercices_repetition)
 
       if (this.seg < this.minimumTime.firstLimit) {
@@ -182,6 +184,7 @@ export default {
     },
 
     showAvaliation() {
+      
       if (this.positive < 5) {
         this.evaluationMessaage = "Voce precisa voltar ao papel e caneta antes de tentar esse nível"
         this.closeMessage()
@@ -202,7 +205,6 @@ export default {
       if (this.avaliationScreem >= 8 && this.avaliationScreem <= 9) {
         this.evaluationMessaage = "Você foi muito bem já pode tentar um exercício mais difícil"
         this.closeMessage()
-
         this.liberaProximosExercicios()
       }
       if (this.avaliationScreem > 9) {
@@ -211,14 +213,15 @@ export default {
         this.liberaProximosExercicios()
       }
     },
-
     closeMessage() {
       setTimeout(() => {
         this.count = 0
       }, 5000)
       return
     },
-
+    handleCloseModal(){
+      this.count = 0
+    },
     liberaProximosExercicios() {     
       this.$emit("liberaexercicio", this.libera_exercicio)
     },
@@ -232,6 +235,7 @@ export default {
       for (let i = 0; i < this.completeItem.length; i++) {
         this.completeItem[i].confirmClass = ""
         this.completeItem[i].writtenResult = ""
+        this.completeItem[i].btnAvaiable = false
         this.completeItem[i].enabling = false
         this.completeItem[i].Label = "Enviar"
       }      
