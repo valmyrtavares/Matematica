@@ -16,7 +16,7 @@ export default {
                 <p>=</p>
             </div>
             <input  :disabled="item.enabling" class="main_in" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenResult"/>  
-            <button v-if="item.writtenResult!==false" @click="ReadingResult(index)" style="color:green">{{ item.Label }}</button>
+            <button v-if="item.writtenResult!==false" @click="ReadingResult(index)" class="btn_enviar">{{ item.Label }}</button>
             <p v-if="item.writtenResult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > number_exercices_repetition">

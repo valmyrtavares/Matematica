@@ -233,3 +233,8 @@ height: 100vh;
   padding:2px;
   width: 150px;
 }
+.btn_enviar{
+color:green;
+padding:3px 18px;
+margin-left: 18px;
+}
