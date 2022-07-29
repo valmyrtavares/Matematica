@@ -16,7 +16,7 @@ export default {
                 <p>=</p>
             </div>
             <input  :disabled="item.enabling" class="main_in" :class="item.confirmClass" type="number" v-model="completeItem[index].writtenResult"/>  
-            <button v-if="item.writtenResult!==false" @click="ReadingResult(index)" class="btn_enviar">{{ item.Label }}</button>
+            <button v-if="item.writtenResult!==false" @click="ReadingResult(index)" :disabled="item.btnAvaiable" class="btn_enviar">{{ item.Label }}</button>
             <p v-if="item.writtenResult===false" style="color:red; min-width: 160px;">O resultado correto é {{item.result}}</p>            
         </div>      
         <div class="result" v-if="count > number_exercices_repetition">
@@ -73,6 +73,7 @@ export default {
           confirmClass: "",
           enabling: false,
           Label: "Enviar",
+          btnAvaiable:false
         })
       }
     },
@@ -135,6 +136,7 @@ export default {
         this.completeItem[index].confirmClass = "corectItem"
         this.completeItem[index].writtenResult = true
         this.completeItem[index].Label = "Resposta Correta"
+        this.completeItem[index].btnAvaiable=true
         this.positive++
       } else {
         this.completeItem[index].confirmClass = "incorectItem"
