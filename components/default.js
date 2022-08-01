@@ -27,7 +27,7 @@ export default {
             <p class="postive_notes"> Acertos {{positive}}</p> 
             <p class="negative_notes"> Erros {{negative}}</p>
         </div> 
-        <p class="tempo">Feito {{seg}} Segundos</p>      
+        <p class="tempo">Tempo: {{seg}} Segundos</p>      
         </div>`,
   data() {
     return {
