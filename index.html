@@ -9,9 +9,9 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">          
+    <div id="app" class="btn_msg_challenge">          
       <div v-if="this.avaiableChallenge">        
-        <button @click="showChallengeScreen(true)" data-menu="button" ><span class="btn_msg_challenge" v-if="this.msgBtnChallenge">Você tem um desafio a sua espera clique no botão </span></button>
+        <button @click="showChallengeScreen(true)" data-menu="button" ><span  v-if="this.msgBtnChallenge">Você tem um desafio a sua espera clique no botão </span></button>
       </div>
 
       <!-- <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p> -->
@@ -82,7 +82,6 @@
     <script type="module">
       import padrao from "./components/default.js"
       import {buttonMenuTarget, dataModuleChallenge} from "./MathListData.js"
-    
       import examChallenge from "./components/challenge.js"
 
       const vm = new Vue({
@@ -147,12 +146,10 @@
               this.avaiableChallenge = JSON.parse(localStorage.getItem("challenge"))
             }
             this.msgBtnChallenge=false
-
           },
           closeExercise(n) {
             this.menuOof = n
           },
-
           checkUser(){
             if (localStorage.hasOwnProperty("username")){
               this.namingScreen=false
@@ -169,7 +166,7 @@
             this.namingScreen=false;
             this.welcomeUser();
           },
-           welcomeUser() {
+          welcomeUser() {
              if (localStorage.hasOwnProperty("username")) {
                this.userName = JSON.parse(localStorage.getItem("username"))               
             this.welcomeScreen = true

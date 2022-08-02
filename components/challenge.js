@@ -109,6 +109,7 @@ export default {
     },
 
     printArrayScreen(){    
+      debugger
       this.countTime();  
       if(this.lastResult){
           this.numbersList.map((item, index)=>{
