@@ -8,13 +8,13 @@
     <script src="./vue.min.js"></script>
     <title>Document</title>
   </head>
-  <body>
+  <body>  
     <div id="app" class="btn_msg_challenge">          
       <div v-if="this.avaiableChallenge">        
         <button @click="showChallengeScreen(true)" data-menu="button" ><span  v-if="this.msgBtnChallenge">Você tem um desafio a sua espera clique no botão </span></button>
       </div>
 
-      <!-- <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p> -->
+      <p v-if= "userNameScreen" class="welcome_user">Bem vindo <br> {{userName}}</p>
       <div v-if="namingScreen" class="naming_user">   
         <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBJb37CIvAktPOxeObrQc-CU_NSwjB8pxthQ&usqp=CAU" alt="">   -->
           <h2>Entre com o nome seu nome pequeno gafanhoto</h2>
@@ -52,7 +52,7 @@
           :primeira_variavel_numerica="item.ScreenSettings.primeira_variavel_numerica"
           :segundo_limite="item.ScreenSettings.segundo_limite"
           :terceiro_limite="item.ScreenSettings.terceiro_limite"
-          :first="item.ScreenSettings.first"         
+          :first="item.ScreenSettings.first"
           :signal="item.ScreenSettings.signal"
           :call_reset="item.ScreenSettings.call_reset"
           :number_exercices_repetition="item.ScreenSettings.numberOfExercicesRepetition"
